@@ -1,10 +1,10 @@
 # messages.en.yml
 app:
     global:
-        name:           "Space Invaders tribute"
-        title:          "Code Challenge 2018"
-        description:    "Space Invaders tribute is the title of the Privalia Code Challenge 2018"
-        author:         "david.amigo@privalia.com"
+        name:           "vpTech presents"
+        title:          "Code Challenge 2020"
+        description:    "The 2020 edition of the vpTech Code Challenge is dedicated to Halloween."
+        author:         "david.amigo@veepee.com"
         login:          "Login"
         logout:         "Logout"
 
@@ -29,7 +29,7 @@ app:
         contests:   "Current active contests:"
 
         rules:          "See the rules"
-        create:         "Create test game"
+        create:         "Create a test game"
         register:       "Register"
 
     rules-page:

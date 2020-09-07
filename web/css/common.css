@@ -4,6 +4,15 @@ body {
 
 /**********************************************************************************************************************/
 
+.company-logo-top {
+    height: 50px !important;
+}
+
+.company-logo-bottom {
+    height: 36px !important;
+    width: auto !important;
+}
+
 .bg-primary small {
     color: #CCCCCC;
 }
