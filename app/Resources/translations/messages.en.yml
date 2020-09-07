@@ -12,19 +12,21 @@ app:
         title:          "Homepage"
 
         upper-text:
-            1:              "The 2018 event of the <strong>Privalia Code Challenge</strong> is called <strong>Space Invaders Tribute</strong>!"
-            2:              "The goal is easy: You have to create a REST API to <strong>kill the invaders</strong> (and the other players too)."
+            1:              "The 2020 edition of the <strong>vpTech Code Challenge</strong> is dedicated to <strong>Halloween</strong>!"
+            2:              "The goal is simple: You have to create a REST API to <strong>move a player</strong> (<i class='text-danger'>random halloween monster</i>)"
+            3:              "over a random generated board, <strong>killing the other players</strong> (<i class='text-danger'>other halloween monsters</i>)"
+            4:              "and some <strong>common enemies</strong> (<i class='text-danger'>evil pumpkins</i>), to get the <strong>best score</strong>."
 
         lower-text:
-            1:              "Your API will move a starship competing with the other player APIs in a real time challenge."
-            2:              "All the starships will start in a different random position."
-            3:              "The winner will be the starship with the highest score."
+            1:              "Your API will move a player competing with the other player APIs in a real time competition."
+            2:              "Each player will start in a different random position."
+            3:              "The winner will be the player with the highest score."
             4:              "The scoring system is:"
 
         score:
-            1:              "<strong>%score% points</strong> to kill a space invader."
-            2:              "<strong>%score% points</strong> to kill another player's starship."
-            3:              "<strong>%score% points</strong> when killed by another player or invader."
+            1:              "<strong>%score% points</strong> to kill an enemy."
+            2:              "<strong>%score% points</strong> to kill another player."
+            3:              "<strong>%score% points</strong> when killed by another player or enemy."
 
         contests:   "Current active contests:"
 
@@ -82,9 +84,9 @@ app:
         title:          "Game over"
 
         texts:
-            1:              "The <strong>Code Challenge 2018</strong> hasn't started."
+            1:              "The <strong>Code Challenge 2020</strong> hasn't started."
             2:              "You can't start creating games until <strong>%date%</strong>."
-            3:              "The <strong>Code Challenge 2018</strong> is over."
+            3:              "The <strong>Code Challenge 2020</strong> is over."
             4:              "You can't create more games since <strong>%date%</strong>."
             5:              "If you have any question you can email to: <strong>%email%</strong>."
 
