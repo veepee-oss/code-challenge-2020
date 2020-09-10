@@ -59,7 +59,7 @@ class PlayerRequest implements PlayerRequestInterface
      *             "x": "int"
      *         }
      *     ],
-     *     "invaders": [
+     *     "enemies": [
      *         {
      *             "y": "int",
      *             "x": "int",
@@ -136,7 +136,7 @@ class PlayerRequest implements PlayerRequestInterface
                 'walls'     => $this->getVisibleWalls($game->maze(), $y1, $x1, $y2, $x2),
             ),
             'players'   => $this->getVisiblePlayers($game->players(), $player, $y1, $x1, $y2, $x2),
-            'invaders'  => $this->getVisibleGhosts($game->ghosts(), $y1, $x1, $y2, $x2)
+            'enemies'  => $this->getVisibleGhosts($game->ghosts(), $y1, $x1, $y2, $x2)
         );
 
         if ($asArray) {

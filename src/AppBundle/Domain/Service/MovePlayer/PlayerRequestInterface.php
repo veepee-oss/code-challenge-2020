@@ -59,7 +59,7 @@ interface PlayerRequestInterface
      *             "x": "int"
      *         }
      *     ],
-     *     "invaders": [
+     *     "enemies": [
      *         {
      *             "y": "int",
      *             "x": "int",

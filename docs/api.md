@@ -83,11 +83,11 @@ Host: your-api.com
             "x": int
         }
     ],
-    "invaders": [              // Array - invaders positions
-        {                      // Object - invader position
+    "enemies": [               // Array - enemies positions
+        {                      // Object - enemy position
             "y": int,
             "x": int,
-            "neutral": "bool"  // If the invader can be killed by touching
+            "neutral": "bool"  // If the enemy can be killed by touching
         }
     ]
 }
@@ -113,7 +113,7 @@ The height and width are sent in the `board.size.height` and `board.size.width` 
 Each player has its own **visible area** based on its current position.
 The visible area is sent in the `player.area` var which is an object with four vars `y1`, `x1`, `y2` and `x2`.
 
-The information sent in `board.walls`, `invaders` and `players` vars depends on the **visible area**.
+The information sent in `board.walls`, `enemies` and `players` vars depends on the **visible area**.
 
 The **fire range** also depends on the visible area.
 You can shot at any straight direction (up, down, left or right) and the fire range is limited to what you can see.
@@ -241,7 +241,7 @@ Host: your-api.com
         "y": 1,
         "x": 1
     } ],
-    "invaders": [ {
+    "enemies": [ {
         "y": 2,
         "x": 2,
         "neutral": false
