@@ -28,7 +28,7 @@
 
 	[512] => 57 groups => 56 x 9 players + 1 x 8 players => 171 winners
 	[171] => 19 groups => 19 x 9 players =================>  57 winners
-	[ 57] =>  7 groups =>  1 x 9 players + 6 x 8 players =>  21 winners
+	[ 57] =>  7 groups =>  1 x 9 players + 6 x 8 players =>  21 winners
 	[ 21] =>  3 groups =>  3 * 7 players =================>   9 winners
 	[  9] =>  1 group  =>  1 * 9 players
 

@@ -98,13 +98,16 @@ app:
 
         texts:
             info:
-                1:              "After registering for the contest <strong>you will receive an email</strong> in the address provided to <strong>enable your API</strong>."
-                2:              "Keep in mind that you will <strong>not be fully registered</strong> until you enable your API."
-                3:              "The URL you provide during the registration <strong>must be valid</strong>. "
-                4:              "The endpoints of the API must respond with valid data."
-                5:              "Also the email returned by the <code>/name</code> endpoint must be the same provided in the form."
-                6:              "You can register <strong>only one API per email address</strong>."
-                7:              "If you use the same email to register another API, the first one will be deleted without notice."
+                1A:             "After registering for the contest <strong>you will receive an email</strong> in the address provided to <strong>enable your API</strong>."
+                1B:             "Keep in mind that you will <strong>not be fully registered</strong> until you enable your API."
+                2A:             "The URL you provide during the registration <strong>must be accessible</strong>."
+                2B:             "The endpoints of the API are tested during the registration process, so they both must respond with valid data."
+                2C:             "Also the email returned by the <code>/name</code> endpoint must be the same provided in the form."
+                2D:             "You can"
+                2E:             "<strong>check the rules</strong>"
+                2F:             "for more information about the format of the endpoints."
+                3A:             "Warning: You can register <strong>only one API per email address</strong>."
+                3B:             "If you use the same email to register another API, the first one will be deleted without notice!"
 
         form:
             contest:        "Contest (*)"
@@ -133,7 +136,7 @@ app:
             out-of-time:    "<strong class='text-danger'>Unfortunately you are out of time!</strong>"
             not-validated:  "Your email address <strong class='text-danger'>%email%</strong> can't be validated!"
             period-ended:   "The registration period for the contest <strong class='text-danger'>%contest%</strong> has ended."
-            reg-period:     "Was from <strong class='text-danger'>%start-date%</strong> to <strong class='text-danger'>%end-date%</strong>."
+            reg-period:     "It was from <strong class='text-danger'>%start-date%</strong> to <strong class='text-danger'>%end-date%</strong>."
 
         buttons:
             back:           "Go Back"

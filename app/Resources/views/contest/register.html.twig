@@ -16,19 +16,24 @@
         </div>
 
         <p class="lead text-justify">
-            {{ 'app.register-competitor.texts.info.1' | trans | raw }}
-            {{ 'app.register-competitor.texts.info.2' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.1A' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.1B' | trans | raw }}
         </p>
 
         <p class="lead text-justify">
-            {{ 'app.register-competitor.texts.info.3' | trans | raw }}
-            {{ 'app.register-competitor.texts.info.4' | trans | raw }}
-            {{ 'app.register-competitor.texts.info.5' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.2A' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.2B' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.2C' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.2D' | trans | raw }}
+            <a href="{{ url('rules') }}">
+                {{ 'app.register-competitor.texts.info.2E' | trans | raw }}
+            </a>
+            {{ 'app.register-competitor.texts.info.2F' | trans | raw }}
         </p>
 
-        <p class="lead text-justify">
-            {{ 'app.register-competitor.texts.info.6' | trans | raw }}
-            {{ 'app.register-competitor.texts.info.7' | trans | raw }}
+        <p class="lead text-justify alert alert-warning">
+            {{ 'app.register-competitor.texts.info.3A' | trans | raw }}
+            {{ 'app.register-competitor.texts.info.3B' | trans | raw }}
         </p>
 
         {{ form_start(form) }}
