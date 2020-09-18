@@ -161,7 +161,7 @@ class PlayerRequest implements PlayerRequestInterface
         $walls = array();
         for ($y = $y1; $y <= $y2; ++$y) {
             for ($x = $x1; $x <= $x2; ++$x) {
-                if ($maze[$y][$x]->getContent() == MazeCell::CELL_WALL) {
+                if ($maze[$y][$x]->isWall()) {
                     $walls[] = array(
                         'y' => $y,
                         'x' => $x

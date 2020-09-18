@@ -9,8 +9,9 @@ namespace AppBundle\Domain\Entity\Maze;
  */
 class MazeCell
 {
-    const CELL_EMPTY = 0x00;
-    const CELL_WALL = 0x88;
+    private const CELL_EMPTY = 0x00;
+    private const CELL_WALL_BASE = 0x80;
+    private const MAX_RANDOM_WALLS = 3;
 
     /** @var int */
     protected $content;
@@ -23,6 +24,26 @@ class MazeCell
     public function __construct(int $content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * Creates a new empty cell
+     *
+     * @return MazeCell
+     */
+    public static function newEmptyCell() : MazeCell
+    {
+        return new MazeCell(self::CELL_EMPTY);
+    }
+
+    /**
+     * Creates a new wall cell
+     *
+     * @return MazeCell
+     */
+    public static function newWallCell() : MazeCell
+    {
+        return new MazeCell(self::randomWallContent());
     }
 
     /**
@@ -44,10 +65,60 @@ class MazeCell
     }
 
     /**
+     * Set the cell content to empty
+     *
+     * @return $this
+     */
+    public function setEmpty() : MazeCell
+    {
+        $this->setContent(self::CELL_EMPTY);
+        return $this;
+    }
+
+    /**
+     * Set the cell content to wall
+     *
+     * @return $this
+     */
+    public function setWall() : MazeCell
+    {
+        $this->setContent(self::randomWallContent());
+        return $this;
+    }
+
+    /**
      * @return bool true if the cell is empty
      */
-    public function isEmpty()
+    public function isEmpty() : bool
     {
         return self::CELL_EMPTY == $this->content;
+    }
+
+    /**
+     * @return bool true if the cell is a wall
+     */
+    public function isWall() : bool
+    {
+        return self::CELL_WALL_BASE & $this->content;
+    }
+
+    /**
+     * @return int the index of the wall
+     */
+    public function getWallIndex() : int
+    {
+        return (~self::CELL_WALL_BASE) & $this->content;
+    }
+
+    /**
+     * @return int get a random wall
+     */
+    protected static function randomWallContent() : int
+    {
+        try {
+            return self::CELL_WALL_BASE | random_int(0, self::MAX_RANDOM_WALLS - 1);
+        } catch (\Exception $exc) {
+            return self::CELL_WALL_BASE;
+        }
     }
 }

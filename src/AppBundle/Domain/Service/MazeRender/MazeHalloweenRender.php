@@ -3,24 +3,25 @@
 namespace AppBundle\Domain\Service\MazeRender;
 
 /**
- * Class MazeStarshipRender
+ * Class MazeHalloweenRender
  *
  * @package AppBundle\Domain\Service\MazeRender
  */
-class MazeStarshipRender extends MazeIconRender
+class MazeHalloweenRender extends MazeIconRender
 {
     protected function getMazeBackgroundCss(bool $finished)
     {
         if ($finished) {
-            return 'x-starship-finished';
+            return 'x-halloween-finished';
         } else {
-            return 'x-starship-background';
+            return 'x-halloween-background';
         }
     }
 
     protected function getMazeWallCss($index)
     {
-        return 'x-starship-wall';
+        $index %= 3; // Max 3 different walls
+        return 'x-halloween-wall' . $index;
     }
 
     protected function getPlayerCss($index, $direction)
@@ -33,24 +34,24 @@ class MazeStarshipRender extends MazeIconRender
         return 'x-starship-player-explosion';
     }
 
-    protected function getGhostNeutralCss($index, $direction, $display)
-    {
-        return 'x-starship-invader' . $display . '-neutral';
-    }
-
     protected function getGhostCss($index, $direction, $display)
     {
-        return 'x-starship-invader' . $display . '-regular';
+        return 'x-halloween-enemy' . $display . '-regular';
+    }
+
+    protected function getGhostNeutralCss($index, $direction, $display)
+    {
+        return 'x-halloween-enemy' . $display . '-neutral';
     }
 
     protected function getGhostAngryCss($index, $direction, $display)
     {
-        return 'x-starship-invader' . $display . '-angry';
+        return $this->getGhostCss($index, $direction, $display);
     }
 
     protected function getGhostKilledCss($index, $direction, $display)
     {
-        return 'x-starship-invader-explosion';
+        return 'x-halloween-enemy-killed';
     }
 
     protected function getShotDirCss($direction)

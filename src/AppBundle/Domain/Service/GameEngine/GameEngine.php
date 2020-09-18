@@ -399,7 +399,7 @@ class GameEngine
         do {
             $y = rand(1, $maze->height() - 2);
             $x = rand(1, $maze->width() - 2);
-        } while ($maze[$y][$x]->getContent() != MazeCell::CELL_EMPTY);
+        } while (!$maze[$y][$x]->isEmpty());
         $game->addGhost(new Ghost(new Position($y, $x), null, $type));
         return $this;
     }

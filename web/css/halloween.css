@@ -1,11 +1,11 @@
 /**********************************************************************************************************************/
 
-.x-maze.x-starship-background {
-    background: #000000 url("../images/starship-stars-background.png") repeat;
+.x-maze.x-halloween-background {
+    background: #000000;
 }
 
-.x-maze.x-starship-finished {
-    background: #666666 url("../images/starship-stars-background.png") repeat;
+.x-maze.x-halloween-finished {
+    background: #666666;
 }
 
 /**********************************************************************************************************************/
@@ -16,8 +16,18 @@
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-wall {
-    background: transparent url("../images/starship-wall.png") no-repeat;
+.x-maze .x-halloween-wall0 {
+    background: transparent url("../images/halloween-wall1-test.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-wall1 {
+    background: transparent url("../images/halloween-wall2-test.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-wall2 {
+    background: transparent url("../images/halloween-wall3-test.png") no-repeat;
     background-size: 100%;
 }
 
@@ -228,75 +238,55 @@
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-invader1-neutral {
-    background: transparent url("../images/starship-invader01-neutral.png") no-repeat;
+.x-maze .x-halloween-enemy1-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-invader1-regular {
-    background: transparent url("../images/starship-invader01-regular.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-invader1-angry {
-    background: transparent url("../images/starship-invader01-angry.png") no-repeat;
+.x-maze .x-halloween-enemy1-regular {
+    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-invader2-neutral {
-    background: transparent url("../images/starship-invader02-neutral.png") no-repeat;
+.x-maze .x-halloween-enemy2-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-invader2-regular {
-    background: transparent url("../images/starship-invader02-regular.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-invader2-angry {
-    background: transparent url("../images/starship-invader02-angry.png") no-repeat;
+.x-maze .x-halloween-enemy2-regular {
+    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-invader3-neutral {
-    background: transparent url("../images/starship-invader03-neutral.png") no-repeat;
+.x-maze .x-halloween-enemy3-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-invader3-regular {
-    background: transparent url("../images/starship-invader03-regular.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-invader3-angry {
-    background: transparent url("../images/starship-invader03-angry.png") no-repeat;
+.x-maze .x-halloween-enemy3-regular {
+    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-invader4-neutral {
-    background: transparent url("../images/starship-invader04-neutral.png") no-repeat;
+.x-maze .x-halloween-enemy4-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-invader4-regular {
-    background: transparent url("../images/starship-invader04-regular.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-invader4-angry {
-    background: transparent url("../images/starship-invader04-angry.png") no-repeat;
+.x-maze .x-halloween-enemy4-regular {
+    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-invader-explosion {
+.x-maze .x-halloween-enemy-killed {
     background: transparent url("../images/starship-invader-explosion.png") no-repeat;
     background-size: 100%;
 }

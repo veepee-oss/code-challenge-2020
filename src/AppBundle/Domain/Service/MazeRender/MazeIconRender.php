@@ -23,11 +23,8 @@ class MazeIconRender implements MazeRenderInterface
     public function render(Game $game) : string
     {
         $maze = $game->maze();
-        $class = $this->getMazeGlobalCss();
-
-        if ($game->finished()) {
-            $class .= " finished";
-        }
+        $class = $this->getMazeGlobalCss()
+            . ' ' . $this->getMazeBackgroundCss($game->finished());
 
         $html = '<table class="' . $class .'">';
 
@@ -87,8 +84,8 @@ class MazeIconRender implements MazeRenderInterface
 
                 // Check if there is a wall in this position
                 if (null === $class
-                    && !$maze[$row][$col]->isEmpty()) {
-                    $class = $this->getMazeWallCss();
+                    && $maze[$row][$col]->isWall()) {
+                    $class = $this->getMazeWallCss($maze[$row][$col]->getWallIndex());
                 }
 
                 // Check if there is killed ghost in this position
@@ -135,12 +132,21 @@ class MazeIconRender implements MazeRenderInterface
         return 'x-maze';
     }
 
+    protected function getMazeBackgroundCss(bool $finished)
+    {
+        if ($finished) {
+            return 'x-finished';
+        } else {
+            return 'x-background';
+        }
+    }
+
     protected function getEmptyCellCss()
     {
         return 'x-empty';
     }
 
-    protected function getMazeWallCss()
+    protected function getMazeWallCss($index)
     {
         return 'x-wall';
     }
@@ -172,11 +178,11 @@ class MazeIconRender implements MazeRenderInterface
 
     protected function getGhostKilledCss($index, $direction, $display)
     {
-        return 'x-empty';
+        return 'x-ghost-killed';
     }
 
     protected function getShotDirCss($direction)
     {
-        return 'x-empty';
+        return 'x-shot';
     }
 }

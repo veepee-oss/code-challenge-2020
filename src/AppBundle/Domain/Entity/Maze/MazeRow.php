@@ -31,7 +31,7 @@ class MazeRow implements \ArrayAccess, \Countable, \Iterator
         $this->pos = 0;
 
         for ($i = 0; $i < $this->count; ++$i) {
-            $this->cells[$i] = new MazeCell(MazeCell::CELL_EMPTY);
+            $this->cells[$i] = MazeCell::newEmptyCell();
         }
     }
 
@@ -102,7 +102,7 @@ class MazeRow implements \ArrayAccess, \Countable, \Iterator
             $this->thwrowOffsetNotExist($offset);
         }
 
-        $this->cells[$offset] = new MazeCell(MazeCell::CELL_EMPTY);
+        $this->cells[$offset] = MazeCell::newEmptyCell();
     }
 
     /**

@@ -33,8 +33,7 @@ class MazeHtmlRender implements MazeRenderInterface
 
             // For each column...
             for ($col = 0; $col < $cols; ++$col) {
-                $cell = $maze[$row][$col]->getContent();
-                if ($cell == MazeCell::CELL_WALL) {
+                if ($maze[$row][$col]->isWall()) {
                     $html .= '<td class="wall"></td>';
                 } else {
                     $drawPlayer = null;
