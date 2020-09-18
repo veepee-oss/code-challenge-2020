@@ -3,11 +3,11 @@
 namespace AppBundle\Domain\Service\MazeRender;
 
 /**
- * Class MazeHalloweenRender
+ * Class MazePacmanRender
  *
  * @package AppBundle\Domain\Service\MazeRender
  */
-class MazeHalloweenRender extends MazeIconRender
+class MazePacmanRender extends MazeIconRender
 {
     public function getMazeGlobalCss() : string
     {
@@ -17,9 +17,9 @@ class MazeHalloweenRender extends MazeIconRender
     public function getMazeBackgroundCss(bool $finished) : string
     {
         if ($finished) {
-            return 'x-halloween-finished';
+            return 'x-finished';
         } else {
-            return 'x-halloween-background';
+            return 'x-background';
         }
     }
 
@@ -30,42 +30,41 @@ class MazeHalloweenRender extends MazeIconRender
 
     public function getMazeWallCss($type) : string
     {
-        $type %= 3; // Max 3 different types of walls
-        return 'x-halloween-wall' . $type;
+        return 'x-wall';
     }
 
     public function getPlayerCss($index, $direction) : string
     {
-        return 'x-starship-player' . $index . '-' . $direction;
+        return 'x-player' . $index . '-' . $direction;
     }
 
     public function getPlayedKilledCss($index, $direction) : string
     {
-        return 'x-starship-player-explosion';
+        return 'x-killed' . $index;
     }
 
     public function getEnemyRegularCss($index, $direction) : string
     {
-        return 'x-halloween-enemy' . $index . '-regular';
+        return 'x-ghost';
     }
 
     public function getEnemyNeutralCss($index, $direction) : string
     {
-        return 'x-halloween-enemy' . $index . '-neutral';
+        return 'x-ghost-neutral';
     }
 
     public function getEnemyAngryCss($index, $direction) : string
     {
-        return $this->getEnemyRegularCss($index, $direction);
+        return 'x-ghost-bad';
     }
 
     public function getEnemyKilledCss($index, $direction)
     {
-        return 'x-halloween-enemy-killed';
+        return 'x-ghost-killed';
     }
 
     public function getShotDirCss($direction) : string
     {
-        return 'x-starship-shot-' . $direction;
+        return 'x-shot';
     }
 }

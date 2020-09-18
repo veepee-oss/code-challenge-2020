@@ -9,51 +9,61 @@ namespace AppBundle\Domain\Service\MazeRender;
  */
 class MazeStarshipRender extends MazeIconRender
 {
-    protected function getMazeBackgroundCss(bool $finished)
+    public function getMazeGlobalCss() : string
+    {
+        return 'x-maze';
+    }
+
+    public function getMazeBackgroundCss(bool $finished) : string
     {
         if ($finished) {
-            return 'x-starship-finished';
+            return 'x-finished';
         } else {
-            return 'x-starship-background';
+            return 'x-background';
         }
     }
 
-    protected function getMazeWallCss($index)
+    public function getEmptyCellCss() : string
+    {
+        return 'x-empty';
+    }
+
+    public function getMazeWallCss($type) : string
     {
         return 'x-starship-wall';
     }
 
-    protected function getPlayerCss($index, $direction)
+    public function getPlayerCss($index, $direction) : string
     {
         return 'x-starship-player' . $index . '-' . $direction;
     }
 
-    protected function getPlayedKilledCss($index, $direction)
+    public function getPlayedKilledCss($index, $direction) : string
     {
         return 'x-starship-player-explosion';
     }
 
-    protected function getGhostNeutralCss($index, $direction, $display)
+    public function getEnemyNeutralCss($index, $direction) : string
     {
-        return 'x-starship-invader' . $display . '-neutral';
+        return 'x-starship-invader' . $index . '-neutral';
     }
 
-    protected function getGhostCss($index, $direction, $display)
+    public function getEnemyRegularCss($index, $direction) : string
     {
-        return 'x-starship-invader' . $display . '-regular';
+        return 'x-starship-invader' . $index . '-regular';
     }
 
-    protected function getGhostAngryCss($index, $direction, $display)
+    public function getEnemyAngryCss($index, $direction) : string
     {
-        return 'x-starship-invader' . $display . '-angry';
+        return 'x-starship-invader' . $index . '-angry';
     }
 
-    protected function getGhostKilledCss($index, $direction, $display)
+    public function getEnemyKilledCss($index, $direction)
     {
         return 'x-starship-invader-explosion';
     }
 
-    protected function getShotDirCss($direction)
+    public function getShotDirCss($direction) : string
     {
         return 'x-starship-shot-' . $direction;
     }

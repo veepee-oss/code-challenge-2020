@@ -12,7 +12,7 @@ use AppBundle\Domain\Entity\Position\Position;
  *
  * @package AppBundle\Domain\Service\MazeRender
  */
-class MazeIconRender implements MazeRenderInterface
+abstract class MazeIconRender implements MazeRenderInterface, MazeIconRenderInterface
 {
     /**
      * Renders the game's maze with all the players
@@ -71,11 +71,11 @@ class MazeIconRender implements MazeRenderInterface
                             }
 
                             if ($ghost->isNeutral()) {
-                                $class = $this->getGhostNeutralCss($index, $direction, $ghost->display());
+                                $class = $this->getEnemyNeutralCss($ghost->display(), $direction);
                             } elseif (Ghost::TYPE_KILLING == $ghost->type()) {
-                                $class = $this->getGhostAngryCss($index, $direction, $ghost->display());
+                                $class = $this->getEnemyAngryCss($ghost->display(), $direction);
                             } else {
-                                $class = $this->getGhostCss($index, $direction, $ghost->display());
+                                $class = $this->getEnemyRegularCss($ghost->display(), $direction);
                             }
                             break;
                         }
@@ -93,7 +93,7 @@ class MazeIconRender implements MazeRenderInterface
                     foreach ($game->killedGhosts() as $index => $ghost) {
                         if ($ghost->position()->x() == $col
                             && $ghost->position()->y() == $row) {
-                            $class = $this->getGhostKilledCss($index, $direction, $ghost->display());
+                            $class = $this->getEnemyKilledCss($ghost->display(), $direction);
                             break;
                         }
                     }
@@ -125,64 +125,5 @@ class MazeIconRender implements MazeRenderInterface
         }
         $html .= '</table>';
         return $html;
-    }
-
-    protected function getMazeGlobalCss()
-    {
-        return 'x-maze';
-    }
-
-    protected function getMazeBackgroundCss(bool $finished)
-    {
-        if ($finished) {
-            return 'x-finished';
-        } else {
-            return 'x-background';
-        }
-    }
-
-    protected function getEmptyCellCss()
-    {
-        return 'x-empty';
-    }
-
-    protected function getMazeWallCss($index)
-    {
-        return 'x-wall';
-    }
-
-    protected function getPlayerCss($index, $direction)
-    {
-        return 'x-player' . $index . '-' . $direction;
-    }
-
-    protected function getPlayedKilledCss($index, $direction)
-    {
-        return 'x-killed' . $index;
-    }
-
-    protected function getGhostCss($index, $direction, $display)
-    {
-        return 'x-ghost';
-    }
-
-    protected function getGhostNeutralCss($index, $direction, $display)
-    {
-        return 'x-ghost-neutral';
-    }
-
-    protected function getGhostAngryCss($index, $direction, $display)
-    {
-        return 'x-ghost-bad';
-    }
-
-    protected function getGhostKilledCss($index, $direction, $display)
-    {
-        return 'x-ghost-killed';
-    }
-
-    protected function getShotDirCss($direction)
-    {
-        return 'x-shot';
     }
 }

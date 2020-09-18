@@ -12,7 +12,7 @@ use AppBundle\Domain\Entity\Game\Game;
 interface MazeRenderInterface
 {
     /**
-     * Renders the game's maze with all the playyers
+     * Renders the game's maze with all the players
      *
      * @param Game $game
      * @return string
