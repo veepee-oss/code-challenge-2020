@@ -24,8 +24,17 @@ services:
     app.maze.builder:
         class: AppBundle\Domain\Service\MazeBuilder\MazeBuilderRecursiveDivision
 
-    app.maze.renderer:
+    app.maze.renderer.pacman:
+        class: AppBundle\Domain\Service\MazeRender\MazePacmanRender
+
+    app.maze.renderer.starship:
+        class: AppBundle\Domain\Service\MazeRender\MazeStarshipRender
+
+    app.maze.renderer.halloween:
         class: AppBundle\Domain\Service\MazeRender\MazeHalloweenRender
+
+    app.maze.renderer:
+        alias: app.maze.renderer.starship
 
     app.game.engine:
         class: AppBundle\Domain\Service\GameEngine\GameEngine
