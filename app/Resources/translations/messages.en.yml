@@ -307,6 +307,7 @@ app:
                 round:          "Validate round %name% scores?"
 
         buttons:
+            view:           "View"
             edit:           "Edit"
             remove:         "Delete"
             add:            "Add"
