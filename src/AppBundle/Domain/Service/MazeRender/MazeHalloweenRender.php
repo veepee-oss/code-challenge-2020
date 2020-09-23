@@ -11,16 +11,12 @@ class MazeHalloweenRender extends MazeIconRender
 {
     public function getMazeGlobalCss() : string
     {
-        return 'x-maze';
+        return 'x-maze x-maze-halloween';
     }
 
     public function getMazeBackgroundCss(bool $finished) : string
     {
-        if ($finished) {
-            return 'x-halloween-finished';
-        } else {
-            return 'x-halloween-background';
-        }
+        return '';
     }
 
     public function getEmptyCellCss() : string
@@ -36,12 +32,12 @@ class MazeHalloweenRender extends MazeIconRender
 
     public function getPlayerCss($index, $direction) : string
     {
-        return 'x-starship-player' . $index . '-' . $direction;
+        return 'x-halloween-player' . $index . '-' . $direction;
     }
 
     public function getPlayedKilledCss($index, $direction) : string
     {
-        return 'x-starship-player-explosion';
+        return 'x-halloween-player-explosion';
     }
 
     public function getEnemyRegularCss($index, $direction) : string

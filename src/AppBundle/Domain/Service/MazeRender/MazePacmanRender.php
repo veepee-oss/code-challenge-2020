@@ -16,11 +16,7 @@ class MazePacmanRender extends MazeIconRender
 
     public function getMazeBackgroundCss(bool $finished) : string
     {
-        if ($finished) {
-            return 'x-finished';
-        } else {
-            return 'x-background';
-        }
+        return ($finished) ? 'x-finished' : '';
     }
 
     public function getEmptyCellCss() : string

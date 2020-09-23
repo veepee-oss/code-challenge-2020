@@ -5,10 +5,13 @@
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: #000000;
 }
 
-.x-maze.x-background {
-    background-color: #000000;
+.x-maze td {
+    width: 40px;
+    height: 40px;
+    /*border: #FFFFFF dashed 1px;*/
 }
 
 .x-maze.x-finished {
@@ -17,16 +20,8 @@
 
 /**********************************************************************************************************************/
 
-.x-maze td {
-    width: 40px;
-    height: 40px;
-    /*border: #FFFFFF dashed 1px;*/
-}
-
-/**********************************************************************************************************************/
-
 .x-maze .x-empty {
-    background-color: #000000;
+    background-color: transparent;
 }
 
 /**********************************************************************************************************************/

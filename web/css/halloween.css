@@ -1,237 +1,232 @@
 /**********************************************************************************************************************/
 
-.x-maze.x-halloween-background {
-    background: #000000;
+.x-maze.x-maze-halloween {
+    background: #000000 url("../images/halloween-ground.png") repeat;
 }
 
-.x-maze.x-halloween-finished {
-    background: #666666;
-}
-
-/**********************************************************************************************************************/
-
-.x-maze .x-empty {
-    background: transparent;
+.x-maze.x-maze-halloween td {
+    width: 45px;
+    height: 45px;
 }
 
 /**********************************************************************************************************************/
 
 .x-maze .x-halloween-wall0 {
-    background: transparent url("../images/halloween-wall1-test.png") no-repeat;
+    background: transparent url("../images/halloween-wall-rocks3.png") no-repeat;
     background-size: 100%;
 }
 
 .x-maze .x-halloween-wall1 {
-    background: transparent url("../images/halloween-wall2-test.png") no-repeat;
+    background: transparent url("../images/halloween-wall-tree1.png") no-repeat;
     background-size: 100%;
 }
 
 .x-maze .x-halloween-wall2 {
-    background: transparent url("../images/halloween-wall3-test.png") no-repeat;
+    background: transparent url("../images/halloween-wall-tree2.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player1-right {
-    background: transparent url("../images/starship-player01-right.png") no-repeat;
+.x-maze .x-halloween-player1-right {
+    background: transparent url("../images/halloween-player-bat-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player1-left {
-    background: transparent url("../images/starship-player01-left.png") no-repeat;
+.x-maze .x-halloween-player1-left {
+    background: transparent url("../images/halloween-player-bat-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player1-up {
-    background: transparent url("../images/starship-player01-up.png") no-repeat;
+.x-maze .x-halloween-player1-up {
+    background: transparent url("../images/halloween-player-bat-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player1-down {
-    background: transparent url("../images/starship-player01-down.png") no-repeat;
-    background-size: 100%;
-}
-
-/**********************************************************************************************************************/
-
-.x-maze .x-starship-player2-right {
-    background: transparent url("../images/starship-player02-right.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-player2-left {
-    background: transparent url("../images/starship-player02-left.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-player2-up {
-    background: transparent url("../images/starship-player02-up.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-player2-down {
-    background: transparent url("../images/starship-player02-down.png") no-repeat;
+.x-maze .x-halloween-player1-down {
+    background: transparent url("../images/halloween-player-bat-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player3-right {
-    background: transparent url("../images/starship-player03-right.png") no-repeat;
+.x-maze .x-halloween-player2-right {
+    background: transparent url("../images/halloween-player-ghost-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player3-left {
-    background: transparent url("../images/starship-player03-left.png") no-repeat;
+.x-maze .x-halloween-player2-left {
+    background: transparent url("../images/halloween-player-ghost-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player3-up {
-    background: transparent url("../images/starship-player03-up.png") no-repeat;
+.x-maze .x-halloween-player2-up {
+    background: transparent url("../images/halloween-player-ghost-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player3-down {
-    background: transparent url("../images/starship-player03-down.png") no-repeat;
-    background-size: 100%;
-}
-
-/**********************************************************************************************************************/
-
-.x-maze .x-starship-player4-right {
-    background: transparent url("../images/starship-player04-right.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-player4-left {
-    background: transparent url("../images/starship-player04-left.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-player4-up {
-    background: transparent url("../images/starship-player04-up.png") no-repeat;
-    background-size: 100%;
-}
-
-.x-maze .x-starship-player4-down {
-    background: transparent url("../images/starship-player04-down.png") no-repeat;
+.x-maze .x-halloween-player2-down {
+    background: transparent url("../images/halloween-player-ghost-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player5-right {
+.x-maze .x-halloween-player3-right {
+    background: transparent url("../images/halloween-player-spider-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-player3-left {
+    background: transparent url("../images/halloween-player-spider-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-player3-up {
+    background: transparent url("../images/halloween-player-spider-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-player3-down {
+    background: transparent url("../images/halloween-player-spider-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-maze .x-halloween-player4-right {
+    background: transparent url("../images/halloween-player-vampire-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-player4-left {
+    background: transparent url("../images/halloween-player-vampire-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-player4-up {
+    background: transparent url("../images/halloween-player-vampire-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-maze .x-halloween-player4-down {
+    background: transparent url("../images/halloween-player-vampire-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-maze .x-halloween-player5-right {
     background: transparent url("../images/starship-player05-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player5-left {
+.x-maze .x-halloween-player5-left {
     background: transparent url("../images/starship-player05-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player5-up {
+.x-maze .x-halloween-player5-up {
     background: transparent url("../images/starship-player05-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player5-down {
+.x-maze .x-halloween-player5-down {
     background: transparent url("../images/starship-player05-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player6-right {
+.x-maze .x-halloween-player6-right {
     background: transparent url("../images/starship-player06-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player6-left {
+.x-maze .x-halloween-player6-left {
     background: transparent url("../images/starship-player06-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player6-up {
+.x-maze .x-halloween-player6-up {
     background: transparent url("../images/starship-player06-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player6-down {
+.x-maze .x-halloween-player6-down {
     background: transparent url("../images/starship-player06-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player7-right {
+.x-maze .x-halloween-player7-right {
     background: transparent url("../images/starship-player07-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player7-left {
+.x-maze .x-halloween-player7-left {
     background: transparent url("../images/starship-player07-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player7-up {
+.x-maze .x-halloween-player7-up {
     background: transparent url("../images/starship-player07-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player7-down {
+.x-maze .x-halloween-player7-down {
     background: transparent url("../images/starship-player07-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player8-right {
+.x-maze .x-halloween-player8-right {
     background: transparent url("../images/starship-player08-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player8-left {
+.x-maze .x-halloween-player8-left {
     background: transparent url("../images/starship-player08-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player8-up {
+.x-maze .x-halloween-player8-up {
     background: transparent url("../images/starship-player08-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player8-down {
+.x-maze .x-halloween-player8-down {
     background: transparent url("../images/starship-player08-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player9-right {
+.x-maze .x-halloween-player9-right {
     background: transparent url("../images/starship-player09-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player9-left {
+.x-maze .x-halloween-player9-left {
     background: transparent url("../images/starship-player09-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player9-up {
+.x-maze .x-halloween-player9-up {
     background: transparent url("../images/starship-player09-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-player9-down {
+.x-maze .x-halloween-player9-down {
     background: transparent url("../images/starship-player09-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-player-explosion {
+.x-maze .x-halloween-player-explosion {
     background: transparent url("../images/starship-explosion.png") no-repeat;
     background-size: 100%;
 }
@@ -239,48 +234,48 @@
 /**********************************************************************************************************************/
 
 .x-maze .x-halloween-enemy1-neutral {
-    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
     background-size: 100%;
 }
 
 .x-maze .x-halloween-enemy1-regular {
-    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
 .x-maze .x-halloween-enemy2-neutral {
-    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
     background-size: 100%;
 }
 
 .x-maze .x-halloween-enemy2-regular {
-    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
 .x-maze .x-halloween-enemy3-neutral {
-    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
     background-size: 100%;
 }
 
 .x-maze .x-halloween-enemy3-regular {
-    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
 .x-maze .x-halloween-enemy4-neutral {
-    background: transparent url("../images/halloween-pumpkin-neutral-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
     background-size: 100%;
 }
 
 .x-maze .x-halloween-enemy4-regular {
-    background: transparent url("../images/halloween-pumpkin-evil-test.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
     background-size: 100%;
 }
 
@@ -293,22 +288,22 @@
 
 /**********************************************************************************************************************/
 
-.x-maze .x-starship-shot-right {
+.x-maze .x-halloween-shot-right {
     background: transparent url("../images/starship-shot-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-shot-left {
+.x-maze .x-halloween-shot-left {
     background: transparent url("../images/starship-shot-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-shot-up {
+.x-maze .x-halloween-shot-up {
     background: transparent url("../images/starship-shot-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-maze .x-starship-shot-down {
+.x-maze .x-halloween-shot-down {
     background: transparent url("../images/starship-shot-down.png") no-repeat;
     background-size: 100%;
 }

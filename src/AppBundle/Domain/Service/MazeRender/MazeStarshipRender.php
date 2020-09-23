@@ -11,16 +11,12 @@ class MazeStarshipRender extends MazeIconRender
 {
     public function getMazeGlobalCss() : string
     {
-        return 'x-maze';
+        return 'x-maze x-maze-starship';
     }
 
     public function getMazeBackgroundCss(bool $finished) : string
     {
-        if ($finished) {
-            return 'x-finished';
-        } else {
-            return 'x-background';
-        }
+        return ($finished) ? 'x-finished' : '';
     }
 
     public function getEmptyCellCss() : string

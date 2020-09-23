@@ -1,17 +1,11 @@
 /**********************************************************************************************************************/
 
-.x-maze.x-starship-background {
+.x-maze.x-maze-starship {
     background: #000000 url("../images/starship-stars-background.png") repeat;
 }
 
-.x-maze.x-starship-finished {
+.x-maze.x-maze-starship.x-finished {
     background: #666666 url("../images/starship-stars-background.png") repeat;
-}
-
-/**********************************************************************************************************************/
-
-.x-maze .x-empty {
-    background: transparent;
 }
 
 /**********************************************************************************************************************/
