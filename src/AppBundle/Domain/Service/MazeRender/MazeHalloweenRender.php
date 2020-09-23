@@ -9,6 +9,11 @@ namespace AppBundle\Domain\Service\MazeRender;
  */
 class MazeHalloweenRender extends MazeIconRender
 {
+    public function getName(): string
+    {
+        return 'halloween';
+    }
+
     public function getMazeGlobalCss() : string
     {
         return 'x-maze x-maze-halloween';

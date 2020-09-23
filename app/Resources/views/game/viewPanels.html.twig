@@ -4,13 +4,10 @@
             {{ 'app.maze-page.texts.score' | trans }}
         </h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body score-panel">
         {% for player in game.classification %}
-            <img
-                    src="{{ asset('images/starship-player0' ~ game.playerNum(player) ~ '-right.png') }}"
-                    class="pull-left image-players"
-                    alt="{{ player.name }}"
-                    title="{{ player.name }}">
+            <div class="pull-left image-players {{ renderer.getPlayerCss(game.playerNum(player), 'right') }}"
+                 title="{{ player.name }}"></div>
 
             <p class="text-info">
                 {% if player.email is empty %}

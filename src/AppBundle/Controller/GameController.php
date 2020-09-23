@@ -6,6 +6,7 @@ use AppBundle\Domain\Entity\Player\Player;
 use AppBundle\Domain\Service\GameEngine\GameDaemonManagerInterface;
 use AppBundle\Domain\Service\GameEngine\GameEngine;
 use AppBundle\Domain\Service\MazeBuilder\MazeBuilderInterface;
+use AppBundle\Domain\Service\MazeRender\MazeIconRenderInterface;
 use AppBundle\Domain\Service\MazeRender\MazeRenderInterface;
 use AppBundle\Domain\Service\MovePlayer\ValidatePlayerServiceInterface;
 use AppBundle\Form\CreateGame\GameEntity;
@@ -196,6 +197,7 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
+        /** @var MazeIconRenderInterface $rendererName */
         $rendererName = $request->query->get('renderer', null);
         $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
@@ -204,7 +206,7 @@ class GameController extends Controller
         return $this->render(':game:view.html.twig', [
             'game'      => $game,
             'maze'      => $maze,
-            'renderer'  => $rendererName
+            'renderer'  => $renderer
         ]);
     }
 
@@ -232,6 +234,7 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
+        /** @var MazeIconRenderInterface $rendererName */
         $rendererName = $request->query->get('renderer', null);
         $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
@@ -240,7 +243,7 @@ class GameController extends Controller
         return $this->render(':game:stacked.html.twig', array(
             'game'      => $game,
             'maze'      => $maze,
-            'renderer'  => $rendererName
+            'renderer'  => $renderer
         ));
     }
 
@@ -268,6 +271,7 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
+        /** @var MazeIconRenderInterface $rendererName */
         $rendererName = $request->query->get('renderer', null);
         $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
@@ -276,7 +280,7 @@ class GameController extends Controller
         return $this->render(':game:maze.html.twig', array(
             'game'      => $game,
             'maze'      => $maze,
-            'renderer'  => $rendererName
+            'renderer'  => $renderer
         ));
     }
 
@@ -304,6 +308,7 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
+        /** @var MazeIconRenderInterface $rendererName */
         $rendererName = $request->query->get('renderer', null);
         $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
@@ -312,7 +317,7 @@ class GameController extends Controller
         return $this->render(':game:panels.html.twig', array(
             'game'      => $game,
             'maze'      => $maze,
-            'renderer'  => $rendererName
+            'renderer'  => $renderer
         ));
     }
 
@@ -340,6 +345,7 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
+        /** @var MazeIconRenderInterface $rendererName */
         $rendererName = $request->query->get('renderer', null);
         $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
@@ -348,12 +354,13 @@ class GameController extends Controller
         $mazeHtml = $this->renderView(':game:viewMaze.html.twig', array(
             'game'      => $game,
             'maze'      => $maze,
-            'renderer'  => $rendererName
+            'renderer'  => $renderer
         ));
 
         $panelsHtml = $this->renderView(':game:viewPanels.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
         ));
 
         $data = array(

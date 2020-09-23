@@ -3,7 +3,7 @@
 {% block content %}
     <div class="js-game"
          data-timeout="{{ 1000 * default_timeout }}"
-         data-url="{{ url('game_refresh', { 'uuid': game.uuid, 'renderer': renderer }) }}">
+         data-url="{{ url('game_refresh', { 'uuid': game.uuid, 'renderer': renderer.getName }) }}">
 
         <div class="js-maze">
             {% include ':game:viewMaze.html.twig' with { 'game': game, 'maze': maze } %}

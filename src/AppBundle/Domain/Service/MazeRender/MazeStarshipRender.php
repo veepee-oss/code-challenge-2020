@@ -9,6 +9,11 @@ namespace AppBundle\Domain\Service\MazeRender;
  */
 class MazeStarshipRender extends MazeIconRender
 {
+    public function getName(): string
+    {
+        return 'starship';
+    }
+
     public function getMazeGlobalCss() : string
     {
         return 'x-maze x-maze-starship';

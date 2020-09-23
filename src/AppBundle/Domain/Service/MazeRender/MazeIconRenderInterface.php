@@ -10,6 +10,11 @@ namespace AppBundle\Domain\Service\MazeRender;
 interface MazeIconRenderInterface
 {
     /**
+     * @return string the name of the renderer.
+     */
+    public function getName() : string;
+
+    /**
      * @return string the global css class for the maze.
      */
     public function getMazeGlobalCss() : string;

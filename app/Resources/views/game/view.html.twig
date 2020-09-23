@@ -3,7 +3,7 @@
 {% block content %}
     <div class="js-game"
          data-timeout="{{ 1000 * default_timeout }}"
-         data-url="{{ url('game_refresh', { 'uuid': game.uuid, 'renderer': renderer }) }}">
+         data-url="{{ url('game_refresh', { 'uuid': game.uuid, 'renderer': renderer.getName }) }}">
 
         <div class="container-fluid">
             <div class="row">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="js-panels">
-                        {% include ':game:viewPanels.html.twig' with { 'game': game, 'maze': maze } %}
+                        {% include ':game:viewPanels.html.twig' with { 'game': game, 'maze': maze, 'renderer': renderer } %}
                     </div>
                 </div>
             </div>
