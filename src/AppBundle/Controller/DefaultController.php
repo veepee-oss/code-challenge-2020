@@ -40,6 +40,30 @@ class DefaultController extends Controller
     }
 
     /**
+     * Default page
+     *
+     * @Route("/halloween", name="halloween")
+     * @return Response
+     * @throws \Exception
+     */
+    public function halloweenAction() : Response
+    {
+        /** @var ContestRepository $repo */
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Contest');
+
+        /** @var ContestEntity $openedContests */
+        $openedContests = $repo->findOpenedContests();
+
+        /** @var ContestEntity $openedContests */
+        $activeContests = $repo->findActiveContests();
+
+        return $this->render('default/index-halloween.html.twig', [
+            'openedContests' => $openedContests,
+            'activeContests' => $activeContests
+        ]);
+    }
+
+    /**
      * Rules static page
      *
      * @Route("/rules", name="rules")

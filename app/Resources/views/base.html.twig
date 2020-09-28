@@ -36,7 +36,7 @@
             {% block more_stylesheets %}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="{% block bodyclass %}{% endblock %}">
         {% block body %}
             {% block navbar %}
                 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -51,7 +51,7 @@
                 </nav>
             {% endblock %}
 
-            {%  block flash %}
+            {% block flash %}
                 {% for label, messages in app.flashes %}
                     {% for message in messages %}
                         <div class="container">

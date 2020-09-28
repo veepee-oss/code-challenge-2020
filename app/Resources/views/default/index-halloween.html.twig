@@ -2,28 +2,63 @@
 
 {% block title %}{{ 'app.homepage.title' | trans }} - {{ parent() }}{% endblock %}
 
+{% block bodyclass %}
+    halloween-body
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
 {% block content %}
     <div class="jumbotron">
         <div class="container">
-            <h1>
-                {{ 'app.global.name' | trans }}
-                <small>
-                    {{ 'app.global.title' | trans }}
-                </small>
-            </h1>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-12">
                     <img
                         src="{{ asset('images/halloween-logo.png') }}"
                         alt="{{ 'app.global.name' | trans }}"
                         title="{{ 'app.global.name' | trans }}"
                         class="img-responsive"
-                        style="background-color: #111; margin-bottom: 15px;"
+                        style="margin-bottom: 15px;"
                     />
-
-                    <br>
-                    <br>
-
+                </div>
+                <div class="col-md-9">
+                    <p class="text-justify">
+                        {{ 'app.homepage.upper-text.1' | trans | raw }}
+                        {{ 'app.homepage.upper-text.2' | trans | raw }}
+                        {{ 'app.homepage.upper-text.3' | trans | raw }}
+                        {{ 'app.homepage.upper-text.4' | trans | raw }}
+                    </p>
+                    <p class="text-justify">
+                        {{ 'app.homepage.lower-text.1' | trans | raw }}
+                        {{ 'app.homepage.lower-text.2' | trans | raw }}
+                        {{ 'app.homepage.lower-text.3' | trans | raw }}
+                    </p>
+                    <ul class="lead text-justify">
+                        <li class="text-success">
+                            {{ 'app.homepage.score.1' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_KILL_GHOST') }) | raw }}
+                        </li>
+                        <li class="text-success">
+                            {{ 'app.homepage.score.2' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_KILL_PLAYER') }) | raw }}
+                        </li>
+                        <li class="text-danger">
+                            {{ 'app.homepage.score.3' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_DEAD') }) | raw }}
+                        </li>
+                    </ul>
+                    {% if activeContests | length > 0 %}
+                        <p class="text-justify">
+                            {{ 'app.homepage.contests' | trans }}
+                        </p>
+                        <ul class="lead">
+                            {% for contest in activeContests %}
+                                <li>
+                                    <a href="{{ url('contest_view', { 'uuid': contest.uuid }) }}"><strong>{{ contest.name }}</strong></a>.
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div class="col-md-3">
                     <a class="btn btn-primary btn-block btn-lg" href="{{ url('rules') }}" role="button">
                         {{ 'app.homepage.rules' | trans }}
                         <span class="glyphicon glyphicon-info-sign"></span>
@@ -44,42 +79,6 @@
                         {{ 'app.homepage.create' | trans }}
                         <span class="glyphicon glyphicon-expand"></span>
                     </a>
-                </div>
-                <div class="col-md-9">
-                    <p class="text-justify">
-                        {{ 'app.homepage.upper-text.1' | trans | raw }}
-                        {{ 'app.homepage.upper-text.2' | trans | raw }}
-                        {{ 'app.homepage.upper-text.3' | trans | raw }}
-                        {{ 'app.homepage.upper-text.4' | trans | raw }}
-                    </p>
-                    <p class="text-justify">
-                        {{ 'app.homepage.lower-text.1' | trans | raw }}
-                        {{ 'app.homepage.lower-text.2' | trans | raw }}
-                        {{ 'app.homepage.lower-text.3' | trans | raw }}
-                    </p>
-                    <ul class="lead">
-                        <li class="text-success">
-                            {{ 'app.homepage.score.1' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_KILL_GHOST') }) | raw }}
-                        </li>
-                        <li class="text-success">
-                            {{ 'app.homepage.score.2' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_KILL_PLAYER') }) | raw }}
-                        </li>
-                        <li class="text-danger">
-                            {{ 'app.homepage.score.3' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_DEAD') }) | raw }}
-                        </li>
-                    </ul>
-                    {% if activeContests | length > 0 %}
-                        <p>
-                            {{ 'app.homepage.contests' | trans }}
-                        </p>
-                        <ul class="lead">
-                            {% for contest in activeContests %}
-                                <li>
-                                    <a href="{{ url('contest_view', { 'uuid': contest.uuid }) }}"><strong>{{ contest.name }}</strong></a>.
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
                 </div>
             </div>
         </div>
