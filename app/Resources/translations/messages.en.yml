@@ -62,7 +62,7 @@ app:
     maze-page:
         texts:
             game:           "Game"
-            status:         "Status"
+            status:         "Game Status"
             moves:          "Moves"
             of:             "of"
             players:        "Players"
@@ -77,7 +77,7 @@ app:
             no-winners:     "No winners yet!"
             no-dead:        "No dead players yet!"
             no-players:     "No remaining players!"
-            score:          "Score"
+            score:          "Game Score"
             points:         "points"
 
     game-over:

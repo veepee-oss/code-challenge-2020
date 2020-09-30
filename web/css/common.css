@@ -132,8 +132,11 @@ body.halloween-body {
 
 /**********************************************************************************************************************/
 
-.score-panel {
-    background-color: #D0D0F0;
+.panel-score {
+    margin-top: 20px;
+}
+.panel-score .panel-body {
+    background-color: #d9edf7;
 }
 
 .score-player-img {
