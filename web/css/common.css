@@ -39,11 +39,8 @@ footer .text-footer-right {
 
 /**********************************************************************************************************************/
 
-.halloween-body {
-    background: #111 url("../images/halloween-background.png") no-repeat;
-}
-
 body.halloween-body {
+    background: #111 url("../images/halloween-background.png") no-repeat;
     padding-top: 0;
     color: #ccc;
 }
@@ -59,6 +56,78 @@ body.halloween-body {
 
 .halloween-body .text-danger {
     color: #73b;
+}
+
+.halloween-body .btn-primary,
+.halloween-body .btn-primary:focus,
+.halloween-body .btn-primary.focus,
+.halloween-body .btn-primary:active,
+.halloween-body .btn-primary.active,
+.halloween-body .btn-primary:active:focus,
+.halloween-body .btn-primary.active:focus,
+.halloween-body .btn-primary:active.focus,
+.halloween-body .btn-primary.active.focus {
+    color: #fff;
+    background-color: #5072fc;
+    background-image: none;
+    border-color: #5072fc;
+}
+
+.halloween-body .btn-primary:hover,
+.halloween-body .btn-primary:active:hover,
+.halloween-body .btn-primary.active:hover {
+    color: #fff;
+    background-color: #a5befa;
+    background-image: none;
+    border-color: #a5befa;
+}
+
+.halloween-body .btn-warning,
+.halloween-body .btn-warning:focus,
+.halloween-body .btn-warning.focus,
+.halloween-body .btn-warning:active,
+.halloween-body .btn-warning.active,
+.halloween-body .btn-warning:active:focus,
+.halloween-body .btn-warning.active:focus,
+.halloween-body .btn-warning:active.focus,
+.halloween-body .btn-warning.active.focus {
+    color: #fff;
+    background-color: #ec008c;
+    background-image: none;
+    border-color: #ec008c;
+}
+
+.halloween-body .btn-warning:hover,
+.halloween-body .btn-warning:active:hover,
+.halloween-body .btn-warning.active:hover {
+    color: #fff;
+    background-color: #ffa9b2;
+    background-image: none;
+    border-color: #ffa9b2;
+}
+
+.halloween-body .btn-success,
+.halloween-body .btn-success:focus,
+.halloween-body .btn-success.focus,
+.halloween-body .btn-success:active,
+.halloween-body .btn-success.active,
+.halloween-body .btn-success:active:focus,
+.halloween-body .btn-success.active:focus,
+.halloween-body .btn-success:active.focus,
+.halloween-body .btn-success.active.focus {
+    color: #fff;
+    background-color: #39e8d5;
+    background-image: none;
+    border-color: #39e8d5;
+}
+
+.halloween-body .btn-success:hover,
+.halloween-body .btn-success:active:hover,
+.halloween-body .btn-success.active:hover {
+    color: #000;
+    background-color: #aefff3;
+    background-image: none;
+    border-color: #aefff3;
 }
 
 /**********************************************************************************************************************/
