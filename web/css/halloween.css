@@ -117,44 +117,44 @@
 /**********************************************************************************************************************/
 
 .x-halloween-player5-right {
-    background: transparent url("../images/starship-player05-right.png") no-repeat;
+    background: transparent url("../images/halloween-player-blackcat-right.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player5-left {
-    background: transparent url("../images/starship-player05-left.png") no-repeat;
+    background: transparent url("../images/halloween-player-blackcat-left.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player5-up {
-    background: transparent url("../images/starship-player05-up.png") no-repeat;
+    background: transparent url("../images/halloween-player-blackcat-up.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player5-down {
-    background: transparent url("../images/starship-player05-down.png") no-repeat;
+    background: transparent url("../images/halloween-player-blackcat-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
 .x-halloween-player6-right {
-    background: transparent url("../images/starship-player06-right.png") no-repeat;
+    background: transparent url("../images/halloween-player-witch-right.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player6-left {
-    background: transparent url("../images/starship-player06-left.png") no-repeat;
+    background: transparent url("../images/halloween-player-witch-left.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player6-up {
-    background: transparent url("../images/starship-player06-up.png") no-repeat;
+    background: transparent url("../images/halloween-player-witch-up.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player6-down {
-    background: transparent url("../images/starship-player06-down.png") no-repeat;
+    background: transparent url("../images/halloween-player-witch-down.png") no-repeat;
     background-size: 100%;
 }
 
@@ -282,7 +282,7 @@
 /**********************************************************************************************************************/
 
 .x-halloween-enemy-killed {
-    background: transparent url("../images/starship-invader-explosion.png") no-repeat;
+    background: transparent url("../images/halloween-pumpkin-smashed.png") no-repeat;
     background-size: 100%;
 }
 
