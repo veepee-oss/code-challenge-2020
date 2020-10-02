@@ -343,7 +343,13 @@ class Game
      */
     public function resetKilledGhosts()
     {
-        $this->killedGhosts = [];
+        $stillKilledGhosts = [];
+        foreach ($this->killedGhosts as $ghost) {
+            if ($ghost->stillKilled()) {
+                $stillKilledGhosts[] = $ghost;
+            }
+        }
+        $this->killedGhosts = $stillKilledGhosts;
         return $this;
     }
 
@@ -420,7 +426,7 @@ class Game
     {
         foreach ($this->ghosts as $key => $item) {
             if ($ghost == $item) {
-                $this->killedGhosts[] = $ghost;
+                $this->killedGhosts[] = $ghost->kill();
                 unset($this->ghosts[$key]);
                 break;
             }

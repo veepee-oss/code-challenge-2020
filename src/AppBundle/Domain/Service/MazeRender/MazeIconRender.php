@@ -93,7 +93,7 @@ abstract class MazeIconRender implements MazeRenderInterface, MazeIconRenderInte
                     foreach ($game->killedGhosts() as $index => $ghost) {
                         if ($ghost->position()->x() == $col
                             && $ghost->position()->y() == $row) {
-                            $class = $this->getEnemyKilledCss($ghost->display(), $direction);
+                            $class = $this->getEnemyKilledCss($ghost->display(), $ghost->direction() ?? Direction::RIGHT);
                             break;
                         }
                     }

@@ -107,6 +107,36 @@ class GhostTest extends TestCase
     }
 
     /**
+     * Unit test kill() and isKilled()
+     */
+    public function testKillGhost()
+    {
+        $ghost = new Ghost(
+            new Position(0, 0)
+        );
+
+        $this->assertFalse($ghost->isKilled());
+
+        $ghost->kill();
+        $this->assertTrue($ghost->isKilled());
+    }
+
+    /**
+     * Unit test move() when no neutral time
+     */
+    public function testStillKilled()
+    {
+        $ghost = new Ghost(
+            new Position(0, 0)
+        );
+
+        $ghost->kill(2);
+        $this->assertTrue($ghost->isKilled());
+        $this->assertTrue($ghost->stillKilled());
+        $this->assertFalse($ghost->stillKilled());
+    }
+
+    /**
      * Unit test serialize()
      */
     public function testSerialize()
@@ -130,7 +160,7 @@ class GhostTest extends TestCase
                 'x' => 104
             ],
             'type' => 105,
-            'neutralTime' => 106,
+            'timer' => 106,
             'display' => 107
         ];
 
@@ -172,7 +202,7 @@ class GhostTest extends TestCase
                 'x' => 204
             ],
             'type' => 205,
-            'neutralTime' => 206,
+            'timer' => 206,
             'display' => 207
         ]);
 
