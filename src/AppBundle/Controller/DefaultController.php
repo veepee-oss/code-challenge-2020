@@ -16,13 +16,25 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * Default page
+     * Default page - redirects to halloween
      *
      * @Route("/", name="homepage")
      * @return Response
      * @throws \Exception
      */
     public function indexAction() : Response
+    {
+        return $this->halloweenAction();
+    }
+
+    /**
+     * Former default page - kept for compatibility
+     *
+     * @Route("/default", name="defaultpage")
+     * @return Response
+     * @throws \Exception
+     */
+    public function defaultAction() : Response
     {
         /** @var ContestRepository $repo */
         $repo = $this->getDoctrine()->getRepository('AppBundle:Contest');

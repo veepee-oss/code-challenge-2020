@@ -34,7 +34,7 @@ services:
         class: AppBundle\Domain\Service\MazeRender\MazeHalloweenRender
 
     app.maze.renderer:
-        alias: app.maze.renderer.starship
+        alias: app.maze.renderer.halloween
 
     app.game.engine:
         class: AppBundle\Domain\Service\GameEngine\GameEngine
