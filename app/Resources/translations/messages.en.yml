@@ -339,7 +339,7 @@ app:
             constributors:  "Contributors"
             attributions:   "Attributions"
             libraries:      "Software Libraries"
-            graphics:       "Graphics and Icons"
+            graphics:       "External graphics and Icons"
 
     error-messages:
         max-competitors: "Max. competitors reached for contest \"%name%\"!"
