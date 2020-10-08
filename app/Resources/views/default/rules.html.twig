@@ -13,14 +13,14 @@
             </h1>
             <p class="lead">
                 The idea is quite simple: You have to <strong>create a <a href="#api-documentation">REST API</a></strong>
-                to <strong>move a player</strong> across a random generated board. In this board there will be also a
+                to <strong>move a player</strong> across a random generated board. In this board there will also be a
                 number of <strong>enemies</strong> and the other players. You will be able to <strong>move</strong> or
                 <strong>fire</strong> at any direction (up, down, left or right), but you will have limited shots.
             </p>
             <p class="lead">
                 You will know the size of the board, the position of your character and some other data, but you won't
                 see the entire board. The game engine will call your API, sending the current conditions, and your API
-                will have to response with your next move: <code>up</code>, <code>down</code>, <code>left</code>,
+                will have to respond with your next move: <code>up</code>, <code>down</code>, <code>left</code>,
                 <code>right</code>, <code>fire-up</code>, <code>fire-down</code>, <code>fire-left</code>
                 or <code>fire-right</code>.
             </p>
@@ -55,7 +55,7 @@
                             <p class="lead">
                                 The <strong>player's character</strong> is moved by the
                                 <a href="#api-documentation">player's REST API</a>. The game engine can manage up to 9
-                                different players concurrently in the same board.
+                                different players concurrently on the same board.
                             </p>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                When a player is killed, it remains <strong>died</strong> for some movements. A killed player
+                                When a player is killed, it remains <strong>dead</strong> for some movements. A killed player
                                 will respawn in the same place where he was killed.
                             </p>
                         </div>
@@ -112,8 +112,8 @@
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                This is a <strong>shot</strong> fired by a player. If a shot hunts a player or an enemy,
-                                it kills him. Shots have a limited range.
+                                Players can <strong>shoot</strong> to the enemies or to the other players.
+                                f a shot hunts a player or an enemy, it kills him. Shots have a limited range.
                             </p>
                         </div>
                     </div>
@@ -122,8 +122,8 @@
 
             <p class="lead">
                 The shots are instantaneous, but limited to the
-                <a href="#visible-area"><strong>visible area</strong></a>. If two players shot each other, both are
-                killed. After shooting, a player must reload and he cannot shot again until a few movements.
+                <a href="#visible-area"><strong>visible area</strong></a>. If two players shoot each other, both are
+                killed. After shooting, a player must reload and he cannot shoot again until a few movements.
             </p>
 
             <p class="lead">
@@ -188,10 +188,16 @@
                     The <strong>Code Challenge 2020</strong> is a programming competition.
                 </li>
                 <li>
-                    It's opened to <strong>all Veepee employees</strong> particularly to vpTech ones.
+                    It's open to <strong>all Veepee employees</strong>, particularly to <strong>vpTech</strong> ones.
                 </li>
                 <li>
-                    The required <strong>programming level</strong> to participate is high.
+                    The required <strong>programming level</strong> to participate is <strong>high</strong>.
+                </li>
+                <li>
+                    To join the challenge you'll need to <strong>upload your API</strong> to an Internet server.
+                </li>
+                <li>
+                    Your API has to be <strong>accessible</strong> from the game server through an URL or IP address.
                 </li>
             </ul>
 
@@ -203,22 +209,6 @@
                 <li>
                     No human interaction is allowed within the players' APIs.
                     That is, the APIs must decide their next move without human intervention.
-                </li>
-            </ul>
-
-            <h3>
-                Join
-            </h3>
-
-            <ul class="lead">
-                <li>
-                    To join the challenge you'll need to <strong>upload your API to your own Internet server</strong>.
-                </li>
-                <li>
-                    Your API has to be <strong>accessible</strong> from the game server through an URL or IP address.
-                </li>
-                <li>
-                    No support will be given to create the API or upload it to a server.
                 </li>
             </ul>
 
@@ -399,7 +389,7 @@
                         </p>
                         <p class="lead">
                             The <strong>fire range</strong> also depends on the <strong>visible area</strong>. You can
-                            shot at any straight direction (up, down, left or right) and the fire range is limited to
+                            shoot in any straight direction (up, down, left or right) and the fire range is limited to
                             what you can see.
                         </p>
                     </div>
