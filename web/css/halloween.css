@@ -219,29 +219,29 @@ body.x-halloween-background::after {
 /**********************************************************************************************************************/
 
 .x-halloween-player9-right {
-    background: transparent url("../images/starship-player09-right.png") no-repeat;
+    background: transparent url("../images/halloween-player-werewolf-right.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player9-left {
-    background: transparent url("../images/starship-player09-left.png") no-repeat;
+    background: transparent url("../images/halloween-player-werewolf-left.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player9-up {
-    background: transparent url("../images/starship-player09-up.png") no-repeat;
+    background: transparent url("../images/halloween-player-werewolf-up.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player9-down {
-    background: transparent url("../images/starship-player09-down.png") no-repeat;
+    background: transparent url("../images/halloween-player-werewolf-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
-.x-halloween-player-explosion {
-    background: transparent url("../images/starship-explosion.png") no-repeat;
+.x-halloween-player-tombstone {
+    background: transparent url("../images/halloween-player-tombstone.png") no-repeat;
     background-size: 100%;
 }
 

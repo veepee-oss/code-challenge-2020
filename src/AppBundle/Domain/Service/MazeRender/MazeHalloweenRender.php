@@ -47,7 +47,7 @@ class MazeHalloweenRender extends MazeIconRender
 
     public function getPlayedKilledCss($index, $direction) : string
     {
-        return 'x-halloween-player-explosion';
+        return 'x-halloween-player-tombstone';
     }
 
     public function getEnemyRegularCss($index, $direction) : string
