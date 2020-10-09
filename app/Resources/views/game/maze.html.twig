@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block bodyclass %}
+    {{ renderer.backgroundCss }}
+{% endblock %}
+
 {% block content %}
     <div class="js-game"
          data-timeout="{{ 1000 * default_timeout }}"
-         data-url="{{ url('game_refresh', { 'uuid': game.uuid, 'renderer': renderer.getName }) }}">
+         data-url="{{ url('game_refresh', { 'uuid': game.uuid, 'renderer': renderer.name }) }}">
 
         <div class="js-maze">
             {% include ':game:viewMaze.html.twig' with { 'game': game, 'maze': maze } %}

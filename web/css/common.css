@@ -40,7 +40,7 @@ footer .text-footer-right {
 /**********************************************************************************************************************/
 
 body.halloween-body {
-    background: #111 url("../images/halloween-background.png") no-repeat;
+    background: #111 url("../images/halloween-background.png") no-repeat fixed;
     padding-top: 0;
     color: #ccc;
 }

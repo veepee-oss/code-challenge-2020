@@ -86,4 +86,33 @@ class MazeHtmlRender implements MazeRenderInterface
         $html .= '</table>';
         return $html;
     }
+
+    /**
+     * @return string the name of the renderer.
+     */
+    public function getName(): string
+    {
+        return 'html';
+    }
+
+    /**
+     * Return the style name to use as background body
+     *
+     * @return string
+     */
+    public function getBackgroundCss(): string
+    {
+        return "";
+    }
+
+    /**
+     * Return the style name to print a static player for the scoreboard
+     *
+     * @param int $index the number of player: 1, 2, 3, ...
+     * @return string
+     */
+    public function getStaticPlayerCss(int $index) : string
+    {
+        return "maze-player" . $index;
+    }
 }

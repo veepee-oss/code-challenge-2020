@@ -596,6 +596,8 @@ class GameController extends Controller
     private function getMazeRendererService(?string $renderer): MazeRenderInterface
     {
         switch ($renderer) {
+            case 'html':
+                return $this->get('app.maze.renderer.html');
 
             case 'pacman':
                 return $this->get('app.maze.renderer.pacman');

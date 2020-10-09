@@ -6,7 +6,7 @@
     </div>
     <div class="panel-body">
         {% for player in game.classification %}
-            <div class="pull-left score-player-img {{ renderer.getPlayerCss(game.playerNum(player), 'right') }}"
+            <div class="pull-left score-player-img {{ renderer.staticPlayerCss(game.playerNum(player)) }}"
                  title="{{ player.name }}"></div>
 
             <p class="text-info">

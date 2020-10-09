@@ -1,10 +1,24 @@
 /**********************************************************************************************************************/
 
-.x-maze.x-maze-halloween {
+body.x-halloween-background::after {
+    content: "";
+    background: #111 url("../images/halloween-background.png") no-repeat;
+    opacity: 0.90;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+/**********************************************************************************************************************/
+
+.x-maze.x-halloween-maze {
     background: #000000 url("../images/halloween-ground.png") repeat;
 }
 
-.x-maze.x-maze-halloween td {
+.x-maze.x-halloween-maze td {
     width: 45px;
     height: 45px;
 }

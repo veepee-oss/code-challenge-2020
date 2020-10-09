@@ -14,6 +14,11 @@ class MazeStarshipRender extends MazeIconRender
         return 'starship';
     }
 
+    public function getBackgroundCss(): string
+    {
+        return "x-starship-background";
+    }
+
     public function getMazeGlobalCss() : string
     {
         return 'x-maze x-maze-starship';

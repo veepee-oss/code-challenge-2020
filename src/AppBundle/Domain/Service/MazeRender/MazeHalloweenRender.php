@@ -14,9 +14,14 @@ class MazeHalloweenRender extends MazeIconRender
         return 'halloween';
     }
 
+    public function getBackgroundCss(): string
+    {
+        return "x-halloween-background";
+    }
+
     public function getMazeGlobalCss() : string
     {
-        return 'x-maze x-maze-halloween';
+        return 'x-maze x-halloween-maze';
     }
 
     public function getMazeBackgroundCss(bool $finished) : string

@@ -24,6 +24,9 @@ services:
     app.maze.builder:
         class: AppBundle\Domain\Service\MazeBuilder\MazeBuilderRecursiveDivision
 
+    app.maze.renderer.html:
+        class: AppBundle\Domain\Service\MazeRender\MazeHtmlRender
+
     app.maze.renderer.pacman:
         class: AppBundle\Domain\Service\MazeRender\MazePacmanRender
 
