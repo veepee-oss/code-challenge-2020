@@ -67,6 +67,6 @@ class MazeHalloweenRender extends MazeIconRender
 
     public function getShotDirCss($direction) : string
     {
-        return 'x-starship-shot-' . $direction;
+        return 'x-halloween-lightning-bolt-' . $direction;
     }
 }

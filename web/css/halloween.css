@@ -161,44 +161,44 @@
 /**********************************************************************************************************************/
 
 .x-halloween-player7-right {
-    background: transparent url("../images/starship-player07-right.png") no-repeat;
+    background: transparent url("../images/halloween-player-mummy-right.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player7-left {
-    background: transparent url("../images/starship-player07-left.png") no-repeat;
+    background: transparent url("../images/halloween-player-mummy-left.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player7-up {
-    background: transparent url("../images/starship-player07-up.png") no-repeat;
+    background: transparent url("../images/halloween-player-mummy-up.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player7-down {
-    background: transparent url("../images/starship-player07-down.png") no-repeat;
+    background: transparent url("../images/halloween-player-mummy-down.png") no-repeat;
     background-size: 100%;
 }
 
 /**********************************************************************************************************************/
 
 .x-halloween-player8-right {
-    background: transparent url("../images/starship-player08-right.png") no-repeat;
+    background: transparent url("../images/halloween-player-death-right.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player8-left {
-    background: transparent url("../images/starship-player08-left.png") no-repeat;
+    background: transparent url("../images/halloween-player-death-left.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player8-up {
-    background: transparent url("../images/starship-player08-up.png") no-repeat;
+    background: transparent url("../images/halloween-player-death-up.png") no-repeat;
     background-size: 100%;
 }
 
 .x-halloween-player8-down {
-    background: transparent url("../images/starship-player08-down.png") no-repeat;
+    background: transparent url("../images/halloween-player-death-down.png") no-repeat;
     background-size: 100%;
 }
 
@@ -288,23 +288,23 @@
 
 /**********************************************************************************************************************/
 
-.x-halloween-shot-right {
-    background: transparent url("../images/starship-shot-right.png") no-repeat;
+.x-halloween-lightning-bolt-right {
+    background: transparent url("../images/halloween-lightning-bolt-right.png") no-repeat;
     background-size: 100%;
 }
 
-.x-halloween-shot-left {
-    background: transparent url("../images/starship-shot-left.png") no-repeat;
+.x-halloween-lightning-bolt-left {
+    background: transparent url("../images/halloween-lightning-bolt-left.png") no-repeat;
     background-size: 100%;
 }
 
-.x-halloween-shot-up {
-    background: transparent url("../images/starship-shot-up.png") no-repeat;
+.x-halloween-lightning-bolt-up {
+    background: transparent url("../images/halloween-lightning-bolt-up.png") no-repeat;
     background-size: 100%;
 }
 
-.x-halloween-shot-down {
-    background: transparent url("../images/starship-shot-down.png") no-repeat;
+.x-halloween-lightning-bolt-down {
+    background: transparent url("../images/halloween-lightning-bolt-down.png") no-repeat;
     background-size: 100%;
 }
 
