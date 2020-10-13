@@ -45,6 +45,10 @@
                             {{ 'app.homepage.score.3' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_DEAD') }) | raw }}
                         </li>
                     </ul>
+                    <p class="text-justify">
+                        {{ 'app.homepage.credits.1' | trans | raw }}
+                        {{ 'app.homepage.credits.2' | trans | raw }}
+                    </p>
                     {% if activeContests | length > 0 %}
                         <p class="text-justify">
                             {{ 'app.homepage.contests' | trans }}

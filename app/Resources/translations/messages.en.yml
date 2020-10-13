@@ -28,6 +28,10 @@ app:
             2:              "<strong>%score% points</strong> to kill another player."
             3:              "<strong>%score% points</strong> when killed by another player or enemy."
 
+        credits:
+            1:              "The <strong>Code Challenge 2020</strong> game server has been created by <strong><a href='mailto:david.amigo@veepee.com'>David Amigo</a></strong>, <strong>architect at vpTech</strong>."
+            2:              "All designs were done by <strong><a href='mailto:rleitao@veepee.com'>Raphaël Leitao</a></strong>, <strong>vpTech's Graphic Artist</strong>."
+
         contests:   "Current active contests:"
 
         rules:          "See the rules"

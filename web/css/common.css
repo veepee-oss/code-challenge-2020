@@ -58,6 +58,13 @@ body.halloween-body {
     color: #73b;
 }
 
+.halloween-body a,
+.halloween-body a:focus,
+.halloween-body a:active,
+.halloween-body a:focus:active {
+    color: #39e8d5;
+}
+
 .halloween-body .btn-primary,
 .halloween-body .btn-primary:focus,
 .halloween-body .btn-primary.focus,
