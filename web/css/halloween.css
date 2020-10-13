@@ -12,6 +12,13 @@ body.x-halloween-background::after {
     z-index: -1;
 }
 
+body.x-halloween-background a,
+body.x-halloween-background a:focus,
+body.x-halloween-background a:active,
+body.x-halloween-background a:focus:active {
+    color: #39e8d5;
+}
+
 /**********************************************************************************************************************/
 
 .x-maze.x-halloween-maze {
