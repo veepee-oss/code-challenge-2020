@@ -17,7 +17,7 @@
             {{ 'app.admin-page.texts.width' | trans({ '%width%': game.width }) | raw }},
             {{ 'app.admin-page.texts.players' | transchoice(game.players | length, { '%players%' : game.players | length }) | raw }}
         </p>
-        <p  style="line-height: 95%; margin-left: 10px;">
+        <p class="panel-game-players">
             <small>
                 {% for player in game.players %}
                     <strong class="text-danger">

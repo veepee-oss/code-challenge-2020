@@ -1,168 +1,23 @@
+/***********************************************************************************************************************
+ * Global Styles
+ **********************************************************************************************************************/
+
 body {
     padding-top: 50px;
 }
-
-/**********************************************************************************************************************/
 
 textarea {
     resize: none;
 }
 
-/**********************************************************************************************************************/
-
-footer .text-footer-right {
-    text-align: right;
-}
-
-@media (max-width: 767px) {
-    footer .text-footer-right {
-        text-align: left;
-    }
-}
-
-/**********************************************************************************************************************/
-
 .text-justify {
     text-align: justify !important;
 }
 
-/**********************************************************************************************************************/
 
-.company-logo-top {
-    height: 50px !important;
-}
-
-.company-logo-bottom {
-    height: 36px !important;
-    width: auto !important;
-}
-
-/**********************************************************************************************************************/
-
-body.halloween-body {
-    background: #111 url("../images/halloween-background.png") no-repeat fixed;
-    padding-top: 0;
-    color: #ccc;
-}
-
-.halloween-body .jumbotron {
-    padding-top: 0;
-    background-color: transparent;
-}
-
-.halloween-body .text-success {
-    color: #f5b;
-}
-
-.halloween-body .text-danger {
-    color: #73b;
-}
-
-.halloween-body a,
-.halloween-body a:focus,
-.halloween-body a:active,
-.halloween-body a:focus:active {
-    color: #39e8d5;
-}
-
-.halloween-body .btn-primary,
-.halloween-body .btn-primary:focus,
-.halloween-body .btn-primary.focus,
-.halloween-body .btn-primary:active,
-.halloween-body .btn-primary.active,
-.halloween-body .btn-primary:active:focus,
-.halloween-body .btn-primary.active:focus,
-.halloween-body .btn-primary:active.focus,
-.halloween-body .btn-primary.active.focus {
-    color: #fff;
-    background-color: #5072fc;
-    background-image: none;
-    border-color: #5072fc;
-}
-
-.halloween-body .btn-primary:hover,
-.halloween-body .btn-primary:active:hover,
-.halloween-body .btn-primary.active:hover {
-    color: #fff;
-    background-color: #a5befa;
-    background-image: none;
-    border-color: #a5befa;
-}
-
-.halloween-body .btn-warning,
-.halloween-body .btn-warning:focus,
-.halloween-body .btn-warning.focus,
-.halloween-body .btn-warning:active,
-.halloween-body .btn-warning.active,
-.halloween-body .btn-warning:active:focus,
-.halloween-body .btn-warning.active:focus,
-.halloween-body .btn-warning:active.focus,
-.halloween-body .btn-warning.active.focus {
-    color: #fff;
-    background-color: #ec008c;
-    background-image: none;
-    border-color: #ec008c;
-}
-
-.halloween-body .btn-warning:hover,
-.halloween-body .btn-warning:active:hover,
-.halloween-body .btn-warning.active:hover {
-    color: #fff;
-    background-color: #ffa9b2;
-    background-image: none;
-    border-color: #ffa9b2;
-}
-
-.halloween-body .btn-success,
-.halloween-body .btn-success:focus,
-.halloween-body .btn-success.focus,
-.halloween-body .btn-success:active,
-.halloween-body .btn-success.active,
-.halloween-body .btn-success:active:focus,
-.halloween-body .btn-success.active:focus,
-.halloween-body .btn-success:active.focus,
-.halloween-body .btn-success.active.focus {
-    color: #fff;
-    background-color: #39e8d5;
-    background-image: none;
-    border-color: #39e8d5;
-}
-
-.halloween-body .btn-success:hover,
-.halloween-body .btn-success:active:hover,
-.halloween-body .btn-success.active:hover {
-    color: #000;
-    background-color: #aefff3;
-    background-image: none;
-    border-color: #aefff3;
-}
-
-/**********************************************************************************************************************/
-
-.panel-score {
-    margin-top: 20px;
-}
-.panel-score .panel-body {
-    background-color: #d9edf7;
-}
-
-.score-player-img {
-    display: block;
-    width: 50px;
-    height: 50px;
-    padding: 1px;
-    margin-right: 12px;
-}
-
-/**********************************************************************************************************************/
-
-.maze-buttons {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/**********************************************************************************************************************/
+/***********************************************************************************************************************
+ * Bootstrap3 overwrites
+ **********************************************************************************************************************/
 
 .alert {
     margin-top: 15px !important;
@@ -270,6 +125,204 @@ body.halloween-body {
 
 .bs-callout-info h4 {
     color: #1b809e;
+}
+
+
+/***********************************************************************************************************************
+ * Site styles
+ **********************************************************************************************************************/
+
+footer .text-footer-right {
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    footer .text-footer-right {
+        text-align: left;
+    }
+}
+
+/**********************************************************************************************************************/
+
+.company-logo-top {
+    height: 50px !important;
+}
+
+.company-logo-bottom {
+    height: 36px !important;
+    width: auto !important;
+}
+
+/**********************************************************************************************************************/
+
+.panel-score {
+    margin-top: 20px;
+}
+.panel-score .panel-body {
+    background-color: #d9edf7;
+}
+
+.score-player-img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 1px;
+    margin-right: 12px;
+}
+
+.maze-buttons {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**********************************************************************************************************************/
+
+.panel-games {
+    max-height: 750px;
+}
+
+.panel-game-players {
+    line-height: 95%;
+    padding: 5px;
+    background-color: #eee;
+}
+
+.panel-list-striped > div:nth-of-type(even) .panel-game-players {
+    background-color: #ddd !important;
+}
+
+/**********************************************************************************************************************/
+
+div.rules-logo {
+    width: 500px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px
+}
+
+div.rules-logo img {
+    background-color: #111;
+}
+
+div.rules-logo-mobile img {
+    background-color: #111;
+    width: 100%;
+}
+
+/***********************************************************************************************************************
+ * Halloween Styles
+ **********************************************************************************************************************/
+
+body.halloween-body {
+    background: #111 url("../images/halloween-background.png") no-repeat fixed;
+    padding-top: 0;
+    color: #ccc;
+}
+
+.halloween-body .jumbotron {
+    padding-top: 0;
+    background-color: transparent;
+}
+
+.halloween-body .text-success {
+    color: #f5b;
+}
+
+.halloween-body .text-danger {
+    color: #73b;
+}
+
+.halloween-body a,
+.halloween-body a:focus,
+.halloween-body a:active,
+.halloween-body a:focus:active {
+    color: #39e8d5;
+}
+
+.halloween-body .img-responsive {
+    margin-bottom: 15px;
+}
+
+/**********************************************************************************************************************/
+
+.halloween-body .btn-primary,
+.halloween-body .btn-primary:focus,
+.halloween-body .btn-primary.focus,
+.halloween-body .btn-primary:active,
+.halloween-body .btn-primary.active,
+.halloween-body .btn-primary:active:focus,
+.halloween-body .btn-primary.active:focus,
+.halloween-body .btn-primary:active.focus,
+.halloween-body .btn-primary.active.focus {
+    color: #fff;
+    background-color: #5072fc;
+    background-image: none;
+    border-color: #5072fc;
+}
+
+.halloween-body .btn-primary:hover,
+.halloween-body .btn-primary:active:hover,
+.halloween-body .btn-primary.active:hover {
+    color: #fff;
+    background-color: #a5befa;
+    background-image: none;
+    border-color: #a5befa;
+}
+
+.halloween-body .btn-warning,
+.halloween-body .btn-warning:focus,
+.halloween-body .btn-warning.focus,
+.halloween-body .btn-warning:active,
+.halloween-body .btn-warning.active,
+.halloween-body .btn-warning:active:focus,
+.halloween-body .btn-warning.active:focus,
+.halloween-body .btn-warning:active.focus,
+.halloween-body .btn-warning.active.focus {
+    color: #fff;
+    background-color: #ec008c;
+    background-image: none;
+    border-color: #ec008c;
+}
+
+.halloween-body .btn-warning:hover,
+.halloween-body .btn-warning:active:hover,
+.halloween-body .btn-warning.active:hover {
+    color: #fff;
+    background-color: #ffa9b2;
+    background-image: none;
+    border-color: #ffa9b2;
+}
+
+.halloween-body .btn-success,
+.halloween-body .btn-success:focus,
+.halloween-body .btn-success.focus,
+.halloween-body .btn-success:active,
+.halloween-body .btn-success.active,
+.halloween-body .btn-success:active:focus,
+.halloween-body .btn-success.active:focus,
+.halloween-body .btn-success:active.focus,
+.halloween-body .btn-success.active.focus {
+    color: #fff;
+    background-color: #39e8d5;
+    background-image: none;
+    border-color: #39e8d5;
+}
+
+.halloween-body .btn-success:hover,
+.halloween-body .btn-success:active:hover,
+.halloween-body .btn-success.active:hover {
+    color: #000;
+    background-color: #aefff3;
+    background-image: none;
+    border-color: #aefff3;
+}
+
+/**********************************************************************************************************************/
+
+.halloween-logo {
+    background-color: #111;
+    margin-bottom: 15px;
 }
 
 /**********************************************************************************************************************/

@@ -17,8 +17,7 @@
                         src="{{ asset('images/halloween-logo.png') }}"
                         alt="{{ 'app.global.name' | trans }}"
                         title="{{ 'app.global.name' | trans }}"
-                        class="img-responsive"
-                        style="background-color: #111; margin-bottom: 15px;"
+                        class="img-responsive halloween-logo"
                     />
 
                     <br>
@@ -68,6 +67,10 @@
                             {{ 'app.homepage.score.3' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_DEAD') }) | raw }}
                         </li>
                     </ul>
+                    <p class="text-justify">
+                        {{ 'app.homepage.credits.1' | trans | raw }}
+                        {{ 'app.homepage.credits.2' | trans | raw }}
+                    </p>
                     {% if activeContests | length > 0 %}
                         <p>
                             {{ 'app.homepage.contests' | trans }}
