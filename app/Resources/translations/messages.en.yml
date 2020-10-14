@@ -209,7 +209,7 @@ app:
             view-details:   "View game details"
             view-maze:      "View game board"
             view-panels:    "View game panels"
-            player-edit:    "Edit player %num% data"
+            player-edit:    "Edit player #%num% data"
             move-finished:  "Move to finished"
             remove:         "Remove game"
             contests:       "View contests"
