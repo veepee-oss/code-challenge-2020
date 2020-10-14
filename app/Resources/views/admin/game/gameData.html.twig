@@ -17,11 +17,18 @@
             {{ 'app.admin-page.texts.width' | trans({ '%width%': game.width }) | raw }},
             {{ 'app.admin-page.texts.players' | transchoice(game.players | length, { '%players%' : game.players | length }) | raw }}
         </p>
-        <p>
-            {% for player in game.players %}
-                <small><strong>{{ player.name  }}</strong> ({{ player.email }})</small><br/>
-            {% endfor %}
+        <p  style="line-height: 95%; margin-left: 10px;">
+            <small>
+                {% for player in game.players %}
+                    <strong class="text-danger">
+                        {{ player.name  }}
+                    </strong>
+                    ({{ player.email }})
+                    <br/>
+                {% endfor %}
+            </small>
         </p>
+
     </div>
     <div class="col-sm-2 col-xs-5 text-right">
         <div class="btn-group" role="group">
