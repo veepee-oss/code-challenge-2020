@@ -112,7 +112,7 @@
                         </a>
                     </div>
                     <div id="panel-finished"
-                         class="panel-body panel-body-scroll panel-list-striped collapse">
+                         class="panel-body panel-body-scroll panel-list-striped panel-games collapse">
                         {% for game in finishedGames %}
                             {% include 'admin/game/gameData.html.twig' with { 'game' : game }  %}
                         {% else %}
