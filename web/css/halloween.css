@@ -25,6 +25,11 @@ body.x-halloween-background a:focus:active {
     background: #000000 url("../images/halloween-ground.png") repeat;
 }
 
+.x-maze.x-halloween-finished {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
 .x-maze.x-halloween-maze td {
     width: 45px;
     height: 45px;

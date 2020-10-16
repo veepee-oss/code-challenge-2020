@@ -26,7 +26,7 @@ class MazeHalloweenRender extends MazeIconRender
 
     public function getMazeBackgroundCss(bool $finished) : string
     {
-        return '';
+        return ($finished) ? 'x-halloween-finished' : '';
     }
 
     public function getEmptyCellCss() : string
