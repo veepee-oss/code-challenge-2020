@@ -121,13 +121,19 @@
                                     <div class="list-group-item">
                                         <p class="list-group-item-heading">
                                             <strong>
-                                                <a target="_blank" href="{{ url('game_view', { 'uuid': match.game.uuid }) }}">
-                                                    {% if match.game is empty %}
-                                                        {{ match.uuid }}
-                                                    {% else %}
-                                                        {{ match.game.name }}
-                                                    {% endif %}
-                                                </a>
+                                                {%  if match.game is not null %}
+                                                    <a target="_blank" href="{{ url('game_view', { 'uuid': match.game.uuid }) }}">
+                                                        {% if match.game is empty %}
+                                                            {{ match.uuid }}
+                                                        {% else %}
+                                                            {{ match.game.name }}
+                                                        {% endif %}
+                                                    </a>
+                                                {% else %}
+                                                    <span class="bg-danger text-danger">
+                                                        {{ 'app.contest-view.texts.game-not-found' | trans }}
+                                                    </span>
+                                                {% endif %}
                                             </strong>
 
                                             &nbsp;
@@ -145,9 +151,11 @@
                                                     {{ 'app.contest-view.texts.status.running' | trans }}
                                                 </span>
                                                 &nbsp;
-                                                <span class="label label-default">
-                                                    {{ 'app.contest-view.texts.movs-left' | trans({ '%count%': match.game.movesLeft }) }}
-                                                </span>
+                                                {% if match.game is not null %}
+                                                    <span class="label label-default">
+                                                        {{ 'app.contest-view.texts.movs-left' | trans({ '%count%': match.game.movesLeft }) }}
+                                                    </span>
+                                                {% endif %}
                                             {% else %}
                                                 <span class="label label-default">
                                                     {{ 'app.contest-view.texts.status.not-started' | trans }}
