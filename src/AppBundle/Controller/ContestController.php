@@ -104,9 +104,17 @@ class ContestController extends Controller
             }
         }
 
+        $validatedCompetitors = 0;
+        foreach ($competitors as $competitor) {
+            if ($competitor->validated()) {
+                $validatedCompetitors++;
+            }
+        }
+
         return $this->render('contest/view.html.twig', [
             'contest'     => $contest,
             'competitors' => $competitors,
+            'validated'   => $validatedCompetitors,
             'rounds'      => $rounds,
             'matches'     => $matches
         ]);

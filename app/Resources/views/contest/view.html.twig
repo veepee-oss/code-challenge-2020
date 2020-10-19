@@ -42,11 +42,15 @@
 
             <p class="text-info">
                 <span class="glyphicon glyphicon-user"></span>
-                {{ 'app.contest-view.texts.competitors' | trans }}
+                {{ 'app.contest-view.texts.competitors' | trans }}:
                 <strong>{{ contest.countCompetitors }}</strong>
                 {% if contest.maxCompetitors is not empty %}
                     {{ 'app.contest-view.texts.of' | trans }}
                     <strong>{{ contest.maxCompetitors }}</strong>
+                {% endif %}
+                {% if validated > 0 %}
+                    ({{ 'app.contest-view.texts.validated' | trans }}:
+                    <strong>{{ validated }}</strong>)
                 {% endif %}
             </p>
         </div>

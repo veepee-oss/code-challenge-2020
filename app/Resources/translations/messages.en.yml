@@ -289,6 +289,7 @@ app:
             c-date-from:    "Contest date from"
             c-date-to:      "to"
             competitors:    "Competitors"
+            validated:      "Validated"
             of:             "of"
             rounds:         "Rounds"
             participants:   "Participants"
