@@ -220,9 +220,22 @@ body.halloween-body {
     color: #ccc;
 }
 
-.halloween-body .jumbotron {
+.halloween-index .jumbotron {
     padding-top: 0;
     background-color: transparent;
+}
+
+.halloween-contest .jumbotron {
+    background-color: rgba(200, 200, 200, 0.25);
+}
+
+.halloween-body .panel {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.halloween-body .list-group-item {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid #000;
 }
 
 .halloween-body .text-success {
@@ -238,10 +251,6 @@ body.halloween-body {
 .halloween-body a:active,
 .halloween-body a:focus:active {
     color: #39e8d5;
-}
-
-.halloween-body .img-responsive {
-    margin-bottom: 15px;
 }
 
 /**********************************************************************************************************************/

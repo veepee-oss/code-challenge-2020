@@ -50,74 +50,43 @@ class ContestController extends Controller
      */
     public function viewAction(string $uuid) : Response
     {
-        /** @var ContestRepository $contestRepo */
-        $contestRepo = $this->getContestDoctrineRepository();
+        return $this->defaultViewAction($uuid);
+    }
 
-        /** @var CompetitorRepository $competitorRepo */
-        $competitorRepo = $this->getCompetitorDoctrineRepository();
+    /**
+     * Page to show all the content of the contest (default render)
+     *
+     * @Route("/{uuid}/view/default", name="contest_view_default",
+     *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
+     *
+     * @param string $uuid
+     * @return Response
+     * @throws \Exception
+     */
+    public function defaultViewAction(string $uuid) : Response
+    {
+        return $this->render(
+            'contest/viewDefault.html.twig',
+            $this->getContestViewData($uuid)
+        );
+    }
 
-        /** @var RoundRepository $roundRepo */
-        $roundRepo = $this->getRoundDoctrineRepository();
-
-        /** @var MatchRepository $matchRepo */
-        $matchRepo = $this->getMatchDoctrineRepository();
-
-        /** @var GameRepository $gameRepo */
-        $gameRepo = $this->getGameDoctrineRepository();
-
-        /** @var ContestEntity $contestEntity */
-        $contestEntity = $contestRepo->findOneBy(array(
-            'uuid' => $uuid
-        ));
-
-        if (null === $contestEntity) {
-            throw new NotFoundHttpException();
-        }
-
-        /** @var Contest $contest */
-        $contest = $contestEntity->toDomainEntity();
-
-        /** @var CompetitorEntity[] $competitorEntities */
-        $competitorEntities = $competitorRepo->findBy([ 'contestUuid' => $contest->uuid() ]);
-
-        /** @var Competitor[] $competitors */
-        $competitors = [];
-        foreach ($competitorEntities as $competitorEntity) {
-            $competitors[] = $competitorEntity->toDomainEntity();
-        }
-        $contest->setCountCompetitors(count($competitors));
-
-        /** @var Round[] $rounds */
-        $rounds = $roundRepo->readRounds($contest->uuid());
-
-        /** @var Match[] $matchs */
-        $matches = [];
-        foreach ($rounds as $round) {
-            $matches = array_merge($matches, $matchRepo->readMatches($round->uuid()));
-        }
-
-        foreach ($matches as $match) {
-            /** @var GameEntity $game */
-            $game = $gameRepo->findOneBy([ 'matchUuid' => $match->uuid() ]);
-            if (null !== $game) {
-                $match->setGame($game->toDomainEntity());
-            }
-        }
-
-        $validatedCompetitors = 0;
-        foreach ($competitors as $competitor) {
-            if ($competitor->validated()) {
-                $validatedCompetitors++;
-            }
-        }
-
-        return $this->render('contest/view.html.twig', [
-            'contest'     => $contest,
-            'competitors' => $competitors,
-            'validated'   => $validatedCompetitors,
-            'rounds'      => $rounds,
-            'matches'     => $matches
-        ]);
+    /**
+     * Page to show all the content of the contest (halloween render)
+     *
+     * @Route("/{uuid}/view/halloween", name="contest_view_halloween",
+     *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
+     *
+     * @param string $uuid
+     * @return Response
+     * @throws \Exception
+     */
+    public function halloweenViewAction(string $uuid) : Response
+    {
+        return $this->render(
+            'contest/viewHalloween.html.twig',
+            $this->getContestViewData($uuid)
+        );
     }
 
     /**
@@ -451,5 +420,77 @@ class ContestController extends Controller
     private function getGameDoctrineRepository() : GameRepository
     {
         return $this->getDoctrine()->getRepository('AppBundle:Game');
+    }
+
+    /**
+     * Get all the data for the contest view screen
+     *
+     * @param string $uuid
+     * @return array
+     * @throws \Exception
+     */
+    public function getContestViewData(string $uuid) : array
+    {
+        /** @var ContestEntity $contestEntity */
+        $contestEntity = $this->getContestDoctrineRepository()->findOneBy([
+            'uuid' => $uuid
+        ]);
+
+        if (null === $contestEntity) {
+            throw new NotFoundHttpException();
+        }
+
+        /** @var Contest $contest */
+        $contest = $contestEntity->toDomainEntity();
+
+        /** @var CompetitorEntity[] $competitorEntities */
+        $competitorEntities = $this->getCompetitorDoctrineRepository()->findBy([
+            'contestUuid' => $contest->uuid()
+        ]);
+
+        /** @var Competitor[] $competitors */
+        $competitors = [];
+        foreach ($competitorEntities as $competitorEntity) {
+            $competitors[] = $competitorEntity->toDomainEntity();
+        }
+        $contest->setCountCompetitors(count($competitors));
+
+        /** @var Round[] $rounds */
+        $rounds = $this->getRoundDoctrineRepository()->readRounds(
+            $contest->uuid()
+        );
+
+        /** @var Match[] $matchs */
+        $matches = [];
+        foreach ($rounds as $round) {
+            $matches = array_merge($matches, $this->getMatchDoctrineRepository()->readMatches(
+                $round->uuid()
+            ));
+        }
+
+        foreach ($matches as $match) {
+            /** @var GameEntity $game */
+            $game = $this->getGameDoctrineRepository()->findOneBy([
+                'matchUuid' => $match->uuid()
+            ]);
+            if (null !== $game) {
+                $match->setGame($game->toDomainEntity());
+            }
+        }
+
+        $validatedCompetitors = 0;
+        foreach ($competitors as $competitor) {
+            if ($competitor->validated()) {
+                $validatedCompetitors++;
+            }
+        }
+
+        return [
+            'contest'     => $contest,
+            'competitors' => $competitors,
+            'validated'   => $validatedCompetitors,
+            'rounds'      => $rounds,
+            'matches'     => $matches
+        ];
     }
 }

@@ -2,6 +2,10 @@
 
 {% block title %}{{ contest.name }} - {{ parent() }}{% endblock %}
 
+{% block bodyclass %}
+    halloween-body halloween-contest
+{% endblock %}
+
 {% block content %}
     <div class="container">
 
@@ -27,7 +31,7 @@
                 {{ 'app.contest-view.texts.r-date-from' | trans }}
                 <strong>{{ contest.registrationStartDate | date('Y-m-d H:i:s e') }}</strong>
                 {{ 'app.contest-view.texts.r-date-to' | trans }}
-                <strong>{{ contest.registrationEndDate | date('Y-m-d H:i:s e') }}</strong>.
+                <strong>{{ contest.registrationEndDate | date('Y-m-d H:i:s e') }}</strong>
             </p>
 
             {% if contest.contestStartDate is not empty or contest.contestEndDate is not empty %}
@@ -36,7 +40,7 @@
                     {{ 'app.contest-view.texts.c-date-from' | trans }}
                     <strong>{{ contest.contestStartDate is empty ? "--" : contest.contestStartDate | date('Y-m-d H:i:s e') }}</strong>
                     {{ 'app.contest-view.texts.c-date-to' | trans }}
-                    <strong>{{ contest.contestEndDate is empty ? "--" : contest.contestEndDate | date('Y-m-d H:i:s e') }}</strong>.
+                    <strong>{{ contest.contestEndDate is empty ? "--" : contest.contestEndDate | date('Y-m-d H:i:s e') }}</strong>
                 </p>
             {% endif %}
 
