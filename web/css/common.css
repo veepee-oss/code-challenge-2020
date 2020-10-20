@@ -229,13 +229,26 @@ body.halloween-body {
     background-color: rgba(200, 200, 200, 0.25);
 }
 
-.halloween-body .panel {
+.halloween-contest .jumbotron h1 {
+    color: #3ed;
+}
+
+.halloween-contest .jumbotron h1 small {
+    color: #aff;
+}
+
+.halloween-contest .panel {
     background-color: rgba(255, 255, 255, 0.25);
 }
 
-.halloween-body .list-group-item {
+.halloween-contest .list-group-item {
     background-color: rgba(255, 255, 255, 0.25);
     border: 1px solid #000;
+}
+
+.halloween-contest .list-group-item.active {
+    background-image: none;
+    background-color: #EC008C;
 }
 
 .halloween-body .text-success {
@@ -244,6 +257,14 @@ body.halloween-body {
 
 .halloween-body .text-danger {
     color: #73b;
+}
+
+.halloween-body .text-info {
+    color: #aff;
+}
+
+.halloween-body .text-info strong {
+    color: #3ed;
 }
 
 .halloween-body a,
@@ -325,6 +346,56 @@ body.halloween-body {
     background-color: #aefff3;
     background-image: none;
     border-color: #aefff3;
+}
+
+/**********************************************************************************************************************/
+
+.halloween-body .panel-success {
+    border-color: #39e8d5;
+}
+
+.halloween-body .panel-success > .panel-heading {
+    color: #ffffff;
+    border-color: #39e8d5;
+    background-color: #39e8d5;
+    background-image: none;
+}
+
+.halloween-body .panel-success > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #39e8d5;
+}
+
+.halloween-body .panel-success > .panel-heading .badge {
+    color: #39e8d5;
+    background-color: #ffffff;
+}
+
+.halloween-body .panel-success > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #39e8d5;
+}
+
+.halloween-body .panel-info {
+    border-color: #a5befa;
+}
+
+.halloween-body .panel-info > .panel-heading {
+    color: #ffffff;
+    border-color: #a5befa;
+    background-color: #a5befa;
+    background-image: none;
+}
+
+.halloween-body .panel-info > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #a5befa;
+}
+
+.halloween-body .panel-info > .panel-heading .badge {
+    color: #a5befa;
+    background-color: #ffffff;
+}
+
+.halloween-body .panel-info > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #a5befa;
 }
 
 /**********************************************************************************************************************/
