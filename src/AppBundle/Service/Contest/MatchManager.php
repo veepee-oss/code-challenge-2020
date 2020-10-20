@@ -60,22 +60,22 @@ class MatchManager implements MatchManagerInterface
             $minPlayers = $maxPlayers - ($maxGroups > 0 ? 1 : 0);
             $minGroups = $numGroups - $maxGroups;
 
+            $matchNum = 1;
             for ($groupNum = 1; $groupNum <= $round->matchesPerPlayer(); ++$groupNum) {
                 shuffle($participants);
 
-                $matchNum = 1;
                 $firstPlayer = 0;
 
                 for ($i = 0; $i < $minGroups; ++$i) {
                     $matchParticipants = array_slice($participants, $firstPlayer, $minPlayers);
-                    $match = $this->createMatch($round, $matchParticipants, $groupNum, $matchNum++);
+                    $match = $this->createMatch($round, $matchParticipants, $matchNum++);
                     $firstPlayer += $minPlayers;
                     $matches[] = $match;
                 }
 
                 for ($i = 0; $i < $maxGroups; ++$i) {
                     $matchParticipants = array_slice($participants, $firstPlayer, $maxPlayers);
-                    $match = $this->createMatch($round, $matchParticipants, $groupNum, $matchNum++);
+                    $match = $this->createMatch($round, $matchParticipants, $matchNum++);
                     $firstPlayer += $maxPlayers;
                     $matches[] = $match;
                 }
@@ -88,17 +88,15 @@ class MatchManager implements MatchManagerInterface
     /**
      * Creates a match and its associated game
      *
-     * @param Round         $round
-     * @param Participant[] $participants
-     * @param int           $groupNum
-     * @param int           $matchNum
+     * @param Round         $round          the data of the round being created
+     * @param Participant[] $participants   the list of participants of the match
+     * @param int           $matchNum       the number of marth (in the round)
      * @return Match
      * @throws \Exception
      */
     protected function createMatch(
         Round $round,
         array $participants,
-        int $groupNum,
         int $matchNum
     ): Match {
         /** @var Maze $maze */
@@ -135,8 +133,7 @@ class MatchManager implements MatchManagerInterface
         }
 
         $name = $round->name()
-            . ' - Group ' . $groupNum
-            . ' - Match ' . $matchNum;
+            . ' - Match #' . $matchNum;
 
         $matchUuid = Uuid::uuid4()->toString();
 
