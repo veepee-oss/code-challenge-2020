@@ -50,7 +50,7 @@ class ContestController extends Controller
      */
     public function viewAction(string $uuid) : Response
     {
-        return $this->defaultViewAction($uuid);
+        return $this->halloweenViewAction($uuid);
     }
 
     /**
