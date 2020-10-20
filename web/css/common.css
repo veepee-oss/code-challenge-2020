@@ -226,6 +226,7 @@ body.halloween-body {
 }
 
 .halloween-contest .jumbotron {
+    padding-top: 96px !important;
     background-color: rgba(200, 200, 200, 0.25);
 }
 
