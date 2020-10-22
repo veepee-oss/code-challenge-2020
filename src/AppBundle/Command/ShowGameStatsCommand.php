@@ -48,13 +48,13 @@ class ShowGameStatsCommand extends ContainerAwareCommand
             ->get('doctrine')
             ->getRepository('AppBundle:Game');
 
-        $page = 50;
+        $limit = 50;
         $total = $repo->count([]);
 
-        for ($offset = 0; $offset < $total; $offset += $page) {
+        for ($offset = 0; $offset < $total; $offset += $limit) {
 
             /** @var \AppBundle\Entity\Game[] $entities */
-            $entities = $repo->findBy([], [ 'id' => 'desc' ], $page, 0);
+            $entities = $repo->findBy([], [ 'id' => 'desc' ], $limit, $offset);
 
             /** @var Game[] $games */
             $games = [];
