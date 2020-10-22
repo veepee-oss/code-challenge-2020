@@ -86,6 +86,12 @@ class ShowGameStatsCommand extends ContainerAwareCommand
         }
         $output->writeln('');
 
+        $output->writeln('Games distribution per days:');
+        foreach ($stats->days() as $day => $count) {
+            $output->writeln("\t" . '- ' . $day . ' (' . $count . ' games)');
+        }
+        $output->writeln('');
+
         return 0;
     }
 }

@@ -27,6 +27,9 @@ class Stats
     /** @var array string => int */
     private $hours;
 
+    /** @var array string => int */
+    private $days;
+
     /**
      * Constructor.
      *
@@ -49,6 +52,7 @@ class Stats
         $this->emails = [];
         $this->apis = [];
         $this->hours = [];
+        $this->days = [];
         return $this;
     }
 
@@ -65,6 +69,7 @@ class Stats
                 $this->numTestGames++;
                 $this->generatePlayerStats($game);
                 $this->generateHoursStats($game);
+                $this->generateDaysStats($game);
             }
         }
         return $this;
@@ -108,6 +113,16 @@ class Stats
         return $copy;
     }
 
+    /**
+     * @return array
+     */
+    public function days(): array
+    {
+        $copy = $this->days;
+        ksort($copy, SORT_STRING);
+        return $copy;
+    }
+
     private function generatePlayerStats(Game $game): void
     {
         $localEmails = [];
@@ -142,10 +157,21 @@ class Stats
     {
         /** @var \DateTime $timestamp */
         $timestamp = $game->lastUpdatedAt();
-        $hour = $timestamp->format("H:00");
+        $hour = $timestamp->format("H:00-H:59");
         if (!array_key_exists($hour, $this->hours)) {
             $this->hours[$hour] = 0;
         }
         $this->hours[$hour]++;
+    }
+
+    private function generateDaysStats(Game $game): void
+    {
+        /** @var \DateTime $timestamp */
+        $timestamp = $game->lastUpdatedAt();
+        $day = $timestamp->format("Y-m-d");
+        if (!array_key_exists($day, $this->days)) {
+            $this->days[$day] = 0;
+        }
+        $this->days[$day]++;
     }
 }
