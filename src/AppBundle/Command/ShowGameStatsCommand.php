@@ -67,7 +67,7 @@ class ShowGameStatsCommand extends ContainerAwareCommand
             $stats->addGames($games, $interval);
         }
 
-        $output->writeln('Test games stats for the last ' . $interval . 'days.');
+        $output->writeln('Test games stats for the last ' . $interval . ' days.');
         $output->writeln('');
 
         $output->writeln('- Num test games: ' . $stats->numTestGames());
