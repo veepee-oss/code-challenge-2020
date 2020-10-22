@@ -28,7 +28,8 @@ class ShowGameStatsCommand extends ContainerAwareCommand
     {
         $this
             ->setName('app:stats:show')
-            ->setDescription('Shows statistics of the game.');
+            ->setDescription('Shows statistics of the game.')
+            ->addArgument('days', InputArgument::OPTIONAL, 'Days range.', 15);
     }
 
     /**
@@ -50,6 +51,7 @@ class ShowGameStatsCommand extends ContainerAwareCommand
 
         $limit = 50;
         $total = $repo->count([]);
+        $interval = $input->getArgument('days');
 
         for ($offset = 0; $offset < $total; $offset += $limit) {
 
@@ -62,7 +64,7 @@ class ShowGameStatsCommand extends ContainerAwareCommand
                 $games[] = $entity->toDomainEntity();
             }
 
-            $stats->addGames($games);
+            $stats->addGames($games, $interval);
         }
 
         $output->writeln('Num test games: ' . $stats->numTestGames());

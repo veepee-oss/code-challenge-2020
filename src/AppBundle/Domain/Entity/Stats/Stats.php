@@ -31,14 +31,11 @@ class Stats
     private $days;
 
     /**
-     * Constructor.
-     *
-     * @param Game[] $games
+     * Constructor
      */
-    public function __construct(array $games = [])
+    public function __construct()
     {
         $this->reset();
-        $this->addGames($games);
     }
 
     /**
@@ -59,18 +56,32 @@ class Stats
     /**
      * Adds games to the stats object
      *
-     * @param Game[] $games
+     * @param Game[] $games    an array of games players
+     * @param int    $interval an interval for the stats in days
      * @return $this
      */
-    public function addGames(array $games): Stats
+    public function addGames(array $games, int $interval): Stats
     {
+        $minDate = new \DateTime();
+        $minDate->setTime(0, 0, 0, 0);
+        $minDate->sub(new \DateInterval('P' . $interval . 'D'));
+
         foreach ($games as $game) {
-            if (!$game->matchUUid()) {
-                $this->numTestGames++;
-                $this->generatePlayerStats($game);
-                $this->generateHoursStats($game);
-                $this->generateDaysStats($game);
+
+            /** @var \DateTime $timestamp */
+            $timestamp = $game->lastUpdatedAt();
+            if ($timestamp < $minDate) {
+                continue;
             }
+
+            if (null != $game->matchUUid()) {
+                continue;
+            }
+
+            $this->numTestGames++;
+            $this->generatePlayerStats($game);
+            $this->generateHoursStats($game);
+            $this->generateDaysStats($game);
         }
         return $this;
     }
