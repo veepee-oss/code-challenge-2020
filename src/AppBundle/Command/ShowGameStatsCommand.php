@@ -67,28 +67,31 @@ class ShowGameStatsCommand extends ContainerAwareCommand
             $stats->addGames($games, $interval);
         }
 
-        $output->writeln('Num test games: ' . $stats->numTestGames());
+        $output->writeln('Test games stats for the last ' . $interval . 'days.');
         $output->writeln('');
 
-        $output->writeln('Num different APIs: ' . count($stats->apis()));
+        $output->writeln('- Num test games: ' . $stats->numTestGames());
+        $output->writeln('');
+
+        $output->writeln('- Num different APIs: ' . count($stats->apis()));
         foreach ($stats->apis() as $api => $count) {
             $output->writeln("\t" . '- ' . $api . ' (' . $count . ' games)');
         }
         $output->writeln('');
 
-        $output->writeln('Num different Emails: ' . count($stats->emails()));
+        $output->writeln('- Num different Emails: ' . count($stats->emails()));
         foreach ($stats->emails() as $email => $count) {
             $output->writeln("\t" . '- ' . $email . ' (' . $count . ' games)');
         }
         $output->writeln('');
 
-        $output->writeln('Games distribution per hours:');
+        $output->writeln('- Games distribution per hours:');
         foreach ($stats->hours() as $hour => $count) {
             $output->writeln("\t" . '- ' . $hour . ' (' . $count . ' games)');
         }
         $output->writeln('');
 
-        $output->writeln('Games distribution per days:');
+        $output->writeln('- Games distribution per days:');
         foreach ($stats->days() as $day => $count) {
             $output->writeln("\t" . '- ' . $day . ' (' . $count . ' games)');
         }
