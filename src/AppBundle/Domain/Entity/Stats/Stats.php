@@ -20,6 +20,13 @@ class Stats
     /** @var array string => int */
     private $apis;
 
+    private static $excludedApis = [
+        'http://localhost/api'
+    ];
+
+    /** @var array string => int */
+    private $hours;
+
     /**
      * Constructor.
      *
@@ -41,6 +48,7 @@ class Stats
         $this->numTestGames = 0;
         $this->emails = [];
         $this->apis = [];
+        $this->hours = [];
         return $this;
     }
 
@@ -55,27 +63,8 @@ class Stats
         foreach ($games as $game) {
             if (!$game->matchUUid()) {
                 $this->numTestGames++;
-                $localEmails = [];
-                $localApis = [];
-                foreach ($game->players() as $player) {
-                    $email = $player->email();
-                    if (false === array_search($email, $localEmails)) {
-                        if (!array_key_exists($email, $this->emails)) {
-                            $this->emails[$email] = 0;
-                        }
-                        $this->emails[$email]++;
-                        $localEmails[] = $email;
-                    }
-
-                    $api = $player->url();
-                    if (false === array_search($api, $localApis)) {
-                        if (!array_key_exists($api, $this->apis)) {
-                            $this->apis[$api] = 0;
-                        }
-                        $this->apis[$api]++;
-                        $localApis[] = $api;
-                    }
-                }
+                $this->generatePlayerStats($game);
+                $this->generateHoursStats($game);
             }
         }
         return $this;
@@ -107,5 +96,56 @@ class Stats
         $copy = $this->apis;
         arsort($copy, SORT_NUMERIC);
         return $copy;
+    }
+
+    /**
+     * @return array
+     */
+    public function hours(): array
+    {
+        $copy = $this->hours;
+        ksort($copy, SORT_STRING);
+        return $copy;
+    }
+
+    private function generatePlayerStats(Game $game): void
+    {
+        $localEmails = [];
+        $localApis = [];
+
+        foreach ($game->players() as $player) {
+            $api = $player->url();
+            $email = $player->email();
+
+            if (false === array_search($api, self::$excludedApis)) {
+
+                if (false === array_search($api, $localApis)) {
+                    if (!array_key_exists($api, $this->apis)) {
+                        $this->apis[$api] = 0;
+                    }
+                    $this->apis[$api]++;
+                    $localApis[] = $api;
+                }
+
+                if (false === array_search($email, $localEmails)) {
+                    if (!array_key_exists($email, $this->emails)) {
+                        $this->emails[$email] = 0;
+                    }
+                    $this->emails[$email]++;
+                    $localEmails[] = $email;
+                }
+            }
+        }
+    }
+
+    private function generateHoursStats(Game $game): void
+    {
+        /** @var \DateTime $timestamp */
+        $timestamp = $game->lastUpdatedAt();
+        $hour = $timestamp->format("H:00");
+        if (!array_key_exists($hour, $this->hours)) {
+            $this->hours[$hour] = 0;
+        }
+        $this->hours[$hour]++;
     }
 }

@@ -66,14 +66,25 @@ class ShowGameStatsCommand extends ContainerAwareCommand
         }
 
         $output->writeln('Num test games: ' . $stats->numTestGames());
+        $output->writeln('');
+
         $output->writeln('Num different APIs: ' . count($stats->apis()));
         foreach ($stats->apis() as $api => $count) {
             $output->writeln("\t" . '- ' . $api . ' (' . $count . ' games)');
         }
+        $output->writeln('');
+
         $output->writeln('Num different Emails: ' . count($stats->emails()));
         foreach ($stats->emails() as $email => $count) {
             $output->writeln("\t" . '- ' . $email . ' (' . $count . ' games)');
         }
+        $output->writeln('');
+
+        $output->writeln('Games distribution per hours:');
+        foreach ($stats->hours() as $hour => $count) {
+            $output->writeln("\t" . '- ' . $hour . ' (' . $count . ' games)');
+        }
+        $output->writeln('');
 
         return 0;
     }
