@@ -18,8 +18,8 @@ class Ghost extends MazeObject
     const TYPE_KILLED = 8;
 
     /** @var int Default values */
-    const DEFAULT_NEUTRAL_TIME = 10;
-    const DEFAULT_KILLED_TIME = 3;
+    const DEFAULT_NEUTRAL_TIME = 7;
+    const DEFAULT_KILLED_TIME = 4;
 
     /** @var int the type of ghost */
     protected $type;
