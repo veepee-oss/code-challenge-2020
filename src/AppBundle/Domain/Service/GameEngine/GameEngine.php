@@ -143,7 +143,7 @@ class GameEngine
     public function move(Game &$game) : bool
     {
         $this->createGhosts($game);
-        $game->resetKilledGhosts();
+        $game->resetKilledGhosts(false);
         $this->resetFire($game);
         $this->movePlayers($game);
         $this->checkPlayersFire($game);

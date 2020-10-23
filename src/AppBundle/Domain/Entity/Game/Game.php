@@ -453,7 +453,7 @@ class Game
     {
         $this->moves = 0;
         $this->ghosts = array();
-        $this->resetKilledGhosts();
+        $this->resetKilledGhosts(true);
         $this->status = static::STATUS_NOT_STARTED;
         foreach ($this->players as $player) {
             $player->resetAll($this->maze->createStartPosition());
@@ -464,17 +464,22 @@ class Game
     /**
      * Removes all the killed ghosts
      *
+     * @param bool $fullReset
      * @return $this
      */
-    public function resetKilledGhosts()
+    public function resetKilledGhosts(bool $fullReset)
     {
-        $stillKilledGhosts = [];
-        foreach ($this->killedGhosts as $ghost) {
-            if ($ghost->stillKilled()) {
-                $stillKilledGhosts[] = $ghost;
+        if ($fullReset) {
+            $this->killedGhosts = [];
+        } else {
+            $stillKilledGhosts = [];
+            foreach ($this->killedGhosts as $ghost) {
+                if ($ghost->stillKilled()) {
+                    $stillKilledGhosts[] = $ghost;
+                }
             }
+            $this->killedGhosts = $stillKilledGhosts;
         }
-        $this->killedGhosts = $stillKilledGhosts;
         return $this;
     }
 
