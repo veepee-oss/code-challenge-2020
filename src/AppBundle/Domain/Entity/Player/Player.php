@@ -57,7 +57,7 @@ class Player extends MazeObject
     /** @var string the URL of the API to move the player */
     protected $url;
 
-    /** @var bool If the player respawned this turn */
+    /** @var bool If the player respawned this turn (value not saved for the next turn) */
     protected $respawned;
 
     /**
@@ -295,6 +295,7 @@ class Player extends MazeObject
      */
     public function fire(string $firingDir, int $reloadMoves = null) : Player
     {
+        $this->chekPlayerStatus();
         if (Fire::firing($firingDir)) {
             $this->status = static::STATUS_RELOADING;
             $this->firingDir = $firingDir;
@@ -324,6 +325,15 @@ class Player extends MazeObject
     public function move(Position $position) : MazeObject
     {
         parent::move($position);
+        $this->chekPlayerStatus();
+        return $this;
+    }
+
+    /**
+     * Restores the status of a player if the count goes to 0
+     */
+    public function chekPlayerStatus() : void
+    {
         if ($this->statusCount() > 0) {
             --$this->statusCount;
             if (0 == $this->statusCount()) {
@@ -337,7 +347,6 @@ class Player extends MazeObject
                 }
             }
         }
-        return $this;
     }
 
     /**
