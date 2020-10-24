@@ -21,8 +21,8 @@ class MazeObject
     /**
      * MazeObject constructor.
      *
-     * @param Position $position
-     * @param Position $previous
+     * @param Position      $position
+     * @param Position|null $previous
      */
     public function __construct(Position $position, Position $previous = null)
     {

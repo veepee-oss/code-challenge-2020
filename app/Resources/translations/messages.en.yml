@@ -224,6 +224,12 @@ app:
             name:           "Display name (*)"
             email:          "Email (*)"
             url:            "URL of the API (*)"
+            position-y:     "Position Y (*)"
+            position-x:     "Position X (*)"
+            previous-y:     "Previous Y (*)"
+            previous-x:     "Previous X (*)"
+            status:         "Status of the player (*)"
+            status-count:   "Movements to change status (*)"
             submit:         "Save"
 
     contest-index:

@@ -222,6 +222,28 @@ class Player extends MazeObject
     }
 
     /**
+     * Sets the name and the email of the player
+     *
+     * @param Position $position
+     * @param Position $previous
+     * @param int $status
+     * @param int $statusCount
+     * @return $this
+     */
+    public function setPlayerConditions(
+        Position $position,
+        Position $previous,
+        int $status,
+        int $statusCount
+    ): Player {
+        $this->position = clone($position);
+        $this->previous = clone($previous);
+        $this->status = $status;
+        $this->statusCount = $statusCount;
+        return $this;
+    }
+
+    /**
      * Sets the URL of the player
      *
      * @param string $url
