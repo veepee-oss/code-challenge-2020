@@ -27,7 +27,11 @@ class ApiController extends Controller
      */
     public function nameAction()
     {
-        $candidates = array(
+        $this->get('logger')->debug(
+            'Random API /name action - Request: {}'
+        );
+
+        static $candidates = [
             'Tyrion Lanister'       => 'the.imp@test.com',
             'Jaime Lanister'        => 'kingslayer@test.com',
             'Cersei Lanister'       => 'the.queen@test.com',
@@ -62,17 +66,23 @@ class ApiController extends Controller
             'Davos Seaworth'        => 'the-onion-knight@test.com',
             'Ygritte'               => 'red-hars-ygritte@test.com',
             'Mance Raider'          => 'the-king-beyond-the-wall@test.com'
-        );
+        ];
 
         $names = array_keys($candidates);
         $index = rand(0, count($candidates) - 1);
         $name = $names[$index];
         $email = $candidates[$name];
 
-        return new JsonResponse(array(
+        $response = [
             'name'  => $name,
             'email' => $email
-        ));
+        ];
+
+        $this->get('logger')->debug(
+            'Random API /name action - Response: ' . json_encode($response)
+        );
+
+        return new JsonResponse($response);
     }
 
     /**
@@ -82,9 +92,13 @@ class ApiController extends Controller
      * @Route("/contest/move")
      * @return JsonResponse
      */
-    public function moveAction()
+    public function moveAction(Request $request)
     {
-        $moves = [
+        $this->get('logger')->debug(
+            'Random API /move action - Request: ' . $request->getContent(false)
+        );
+
+        static $moves = [
             Direction::UP,
             Direction::DOWN,
             Direction::LEFT,
@@ -92,7 +106,7 @@ class ApiController extends Controller
             Fire::UP,
             Fire::DOWN,
             Fire::LEFT,
-            Fire::RIGHT
+            Fire::RIGHT,
         ];
 
         $firing = rand(0, 8) > 6;
@@ -102,9 +116,15 @@ class ApiController extends Controller
             $index = rand(0, 3);
         }
 
-        return new JsonResponse(array(
+        $response = [
             'move' => $moves[$index]
-        ));
+        ];
+
+        $this->get('logger')->debug(
+            'Random API /move action - Response: ' . json_encode($response)
+        );
+
+        return new JsonResponse($response);
     }
 
     /**
@@ -115,9 +135,9 @@ class ApiController extends Controller
      */
     public function contestNameAction()
     {
-        return new JsonResponse(array(
+        return new JsonResponse([
             'name'  => 'David Amigo',
             'email' => 'david.amigo@privalia.com'
-        ));
+        ]);
     }
 }
