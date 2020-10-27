@@ -30,6 +30,9 @@ class Stats
     /** @var array string => int */
     private $days;
 
+    /** @var \DateTime|null */
+    private $minDate;
+
     /**
      * Constructor
      */
@@ -50,6 +53,7 @@ class Stats
         $this->apis = [];
         $this->hours = [];
         $this->days = [];
+        $this->minDate = null;
         return $this;
     }
 
@@ -62,15 +66,15 @@ class Stats
      */
     public function addGames(array $games, int $interval): Stats
     {
-        $minDate = new \DateTime();
-        $minDate->setTime(0, 0, 0, 0);
-        $minDate->sub(new \DateInterval('P' . $interval . 'D'));
+        $this->minDate = new \DateTime();
+        $this->minDate->setTime(0, 0, 0, 0);
+        $this->minDate->sub(new \DateInterval('P' . $interval . 'D'));
 
         foreach ($games as $game) {
 
             /** @var \DateTime $timestamp */
             $timestamp = $game->lastUpdatedAt();
-            if ($timestamp < $minDate) {
+            if ($timestamp < $this->minDate) {
                 continue;
             }
 
@@ -132,6 +136,14 @@ class Stats
         $copy = $this->days;
         ksort($copy, SORT_STRING);
         return $copy;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function minDate(): ?\DateTime
+    {
+        return $this->minDate;
     }
 
     private function generatePlayerStats(Game $game): void

@@ -4,14 +4,10 @@ namespace AppBundle\Command;
 
 use AppBundle\Domain\Entity\Game\Game;
 use AppBundle\Domain\Entity\Stats\Stats;
-use AppBundle\Domain\Service\GameEngine\GameDaemonManagerInterface;
-use AppBundle\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -67,7 +63,11 @@ class ShowGameStatsCommand extends ContainerAwareCommand
             $stats->addGames($games, $interval);
         }
 
-        $output->writeln('Test games stats for the last ' . $interval . ' days.');
+        $output->write('Test games stats for the last ' . $interval . ' days');
+        if ($interval > 0) {
+            $output->write(' (since ' . $stats->minDate()->format('Y-m-d') . ')');
+        }
+        $output->writeln('.');
         $output->writeln('');
 
         $output->writeln('- Num test games: ' . $stats->numTestGames());
