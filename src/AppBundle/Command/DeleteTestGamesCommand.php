@@ -64,23 +64,27 @@ class DeleteTestGamesCommand extends ContainerAwareCommand
         $total = $repo->count([]);
 
         $output->writeln('');
-        $output->write('<info>Checking </info>' . $total . '<info> games...</info>');
+        $output->writeln('<info>Checking </info>' . $total . '<info> games...</info>');
 
         $deleted = 0;
+        $count = 0;
 
         /** @var \AppBundle\Entity\Game[] $entities */
         $entities = $repo->findBy([], [ 'id' => 'desc' ]);
         foreach ($entities as $entity) {
+            ++$count;
+
             /** @var Game $game */
             $game = $entity->toDomainEntity();
             if (null == $game->matchUUid()) {
-                $em->remove($entity);
+                $output->write("\r" . $count . '. Removing game ' . $game->uuid() . '...');
+                $repo->removeGame($entity);
+                $em->flush();
                 ++$deleted;
             }
         }
 
-        $em->flush();
-
+        $output->write("\r" . '- Removing game ' . $game->uuid() . '...');
         $output->writeln('');
         $output->writeln($deleted . ' <info>games deleted!</info>');
         $output->writeln('');
