@@ -64,7 +64,7 @@ class ShowGameStatsCommand extends ContainerAwareCommand
         }
 
         $output->write('Test games stats for the last ' . $interval . ' days');
-        if ($interval > 0) {
+        if ($interval > 0 && null != $stats->minDate()) {
             $output->write(' (since ' . $stats->minDate()->format('Y-m-d') . ')');
         }
         $output->writeln('.');
