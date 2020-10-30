@@ -154,6 +154,5 @@ SOFTWARE.
 
 ## Contributors
 
-* **David Amigo** <[davamigo@gmail.com](mailto:davamigo@gmail.com)> - main developer - [Github](https://github.com/davamigo)
-* **Raphaël Leitao** <[rleitao@vente-privee.com](mailto:rleitao@vente-privee.com)> - graphic designer
-
+* **David Amigo** <[davamigo@gmail.com](mailto:davamigo@gmail.com)> - Main Developer - [Github](https://github.com/davamigo)
+* **Raphaël Leitao** <[raphael.leitao@live.fr](mailto:raphael.leitao@live.fr)> - Artistic Designer
