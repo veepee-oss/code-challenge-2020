@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'app.homepage.title' | trans }} - {{ parent() }}{% endblock %}
+
+{% block bodyclass %}
+    halloween-body halloween-index
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <img
+                        src="{{ asset('images/halloween-logo.png') }}"
+                        alt="{{ 'app.global.name' | trans }}"
+                        title="{{ 'app.global.name' | trans }}"
+                        class="img-responsive"
+                    />
+                </div>
+                <div class="col-md-9">
+                    <p class="text-justify">
+                        {{ 'app.homepage.upper-text.1' | trans | raw }}
+                        {{ 'app.homepage.upper-text.2' | trans | raw }}
+                        {{ 'app.homepage.upper-text.3' | trans | raw }}
+                        {{ 'app.homepage.upper-text.4' | trans | raw }}
+                    </p>
+                    <p class="text-justify">
+                        {{ 'app.homepage.lower-text.1' | trans | raw }}
+                        {{ 'app.homepage.lower-text.2' | trans | raw }}
+                        {{ 'app.homepage.lower-text.3' | trans | raw }}
+                    </p>
+                    <ul class="lead text-justify">
+                        <li class="text-success">
+                            {{ 'app.homepage.score.1' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_KILL_GHOST') }) | raw }}
+                        </li>
+                        <li class="text-success">
+                            {{ 'app.homepage.score.2' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_KILL_PLAYER') }) | raw }}
+                        </li>
+                        <li class="text-danger">
+                            {{ 'app.homepage.score.3' | trans({ '%score%': constant('AppBundle\\Domain\\Service\\GameEngine\\GameEngine::SCORE_DEAD') }) | raw }}
+                        </li>
+                    </ul>
+                    <p class="text-justify">
+                        {{ 'app.homepage.credits.1' | trans | raw }}
+                        {{ 'app.homepage.credits.2' | trans | raw }}
+                    </p>
+                    {% if activeContests | length > 0 %}
+                        <p class="text-justify">
+                            {{ 'app.homepage.contests' | trans }}
+                        </p>
+                        <ul class="lead">
+                            {% for contest in activeContests %}
+                                <li>
+                                    <a href="{{ url('contest_view', { 'uuid': contest.uuid }) }}"><strong>{{ contest.name }}</strong></a>.
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-primary btn-block btn-lg" href="{{ url('rules') }}" role="button">
+                        {{ 'app.homepage.rules' | trans }}
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </a>
+
+                    {% if openedContests | length > 0 %}
+                        <br>
+
+                        <a class="btn btn-warning btn-block btn-lg" href="{{ url('contest_register') }}" role="button">
+                            {{ 'app.homepage.register' | trans }}
+                            <span class="glyphicon glyphicon-log-in"></span>
+                        </a>
+                    {% endif %}
+
+                    <br>
+
+                    <a class="btn btn-success btn-block btn-lg" href="{{ url('game_create') }}" role="button">
+                        {{ 'app.homepage.create' | trans }}
+                        <span class="glyphicon glyphicon-expand"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

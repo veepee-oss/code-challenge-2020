@@ -6,6 +6,7 @@ use AppBundle\Domain\Entity\Player\Player;
 use AppBundle\Domain\Service\GameEngine\GameDaemonManagerInterface;
 use AppBundle\Domain\Service\GameEngine\GameEngine;
 use AppBundle\Domain\Service\MazeBuilder\MazeBuilderInterface;
+use AppBundle\Domain\Service\MazeRender\MazeIconRenderInterface;
 use AppBundle\Domain\Service\MazeRender\MazeRenderInterface;
 use AppBundle\Domain\Service\MovePlayer\ValidatePlayerServiceInterface;
 use AppBundle\Form\CreateGame\GameEntity;
@@ -178,11 +179,12 @@ class GameController extends Controller
      * @Route("/{uuid}/view", name="game_view",
      *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
      *
+     * @param Request $request
      * @param string $uuid
      * @return Response
      * @throws \Exception
      */
-    public function viewAction($uuid)
+    public function viewAction(Request $request, string $uuid)
     {
         $this->checkDaemon();
 
@@ -195,14 +197,17 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $renderer = $this->getMazeRendererService();
+        /** @var MazeIconRenderInterface $rendererName */
+        $rendererName = $request->query->get('renderer', null);
+        $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
         $maze = $renderer->render($game);
 
-        return $this->render(':game:view.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
-        ));
+        return $this->render(':game:view.html.twig', [
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
+        ]);
     }
 
     /**
@@ -211,11 +216,12 @@ class GameController extends Controller
      * @Route("/{uuid}/view/stacked", name="game_view_stacked",
      *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
      *
+     * @param Request $request
      * @param string $uuid
      * @return Response
      * @throws \Exception
      */
-    public function viewStackedAction($uuid)
+    public function viewStackedAction(Request $request, string $uuid)
     {
         $this->checkDaemon();
 
@@ -228,13 +234,16 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $renderer = $this->getMazeRendererService();
+        /** @var MazeIconRenderInterface $rendererName */
+        $rendererName = $request->query->get('renderer', null);
+        $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
         $maze = $renderer->render($game);
 
         return $this->render(':game:stacked.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
         ));
     }
 
@@ -244,11 +253,12 @@ class GameController extends Controller
      * @Route("/{uuid}/view/maze", name="game_view_maze",
      *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
      *
+     * @param Request $request
      * @param string $uuid
      * @return Response
      * @throws \Exception
      */
-    public function viewMazeAction($uuid)
+    public function viewMazeAction(Request $request, string $uuid)
     {
         $this->checkDaemon();
 
@@ -261,13 +271,16 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $renderer = $this->getMazeRendererService();
+        /** @var MazeIconRenderInterface $rendererName */
+        $rendererName = $request->query->get('renderer', null);
+        $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
         $maze = $renderer->render($game);
 
         return $this->render(':game:maze.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
         ));
     }
 
@@ -277,11 +290,12 @@ class GameController extends Controller
      * @Route("/{uuid}/view/panels", name="game_view_panels",
      *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
      *
+     * @param Request $request
      * @param string $uuid
      * @return Response
      * @throws \Exception
      */
-    public function viewPanelsAction($uuid)
+    public function viewPanelsAction(Request $request, string $uuid)
     {
         $this->checkDaemon();
 
@@ -294,13 +308,16 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $renderer = $this->getMazeRendererService();
+        /** @var MazeIconRenderInterface $rendererName */
+        $rendererName = $request->query->get('renderer', null);
+        $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
         $maze = $renderer->render($game);
 
         return $this->render(':game:panels.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
         ));
     }
 
@@ -310,11 +327,12 @@ class GameController extends Controller
      * @Route("/{uuid}/refresh", name="game_refresh",
      *     requirements={"uuid": "[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}"})
      *
+     * @param Request $request
      * @param string $uuid
      * @return JsonResponse
      * @throws \Exception
      */
-    public function refreshAction($uuid)
+    public function refreshAction(Request $request, string $uuid)
     {
         $this->checkDaemon();
 
@@ -327,18 +345,22 @@ class GameController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $renderer = $this->getMazeRendererService();
+        /** @var MazeIconRenderInterface $rendererName */
+        $rendererName = $request->query->get('renderer', null);
+        $renderer = $this->getMazeRendererService($rendererName);
         $game = $entity->toDomainEntity();
         $maze = $renderer->render($game);
 
         $mazeHtml = $this->renderView(':game:viewMaze.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
         ));
 
         $panelsHtml = $this->renderView(':game:viewPanels.html.twig', array(
-            'game' => $game,
-            'maze' => $maze
+            'game'      => $game,
+            'maze'      => $maze,
+            'renderer'  => $renderer
         ));
 
         $data = array(
@@ -568,10 +590,26 @@ class GameController extends Controller
     /**
      * Get the object to render de maze
      *
+     * @param string|null $renderer
      * @return MazeRenderInterface
      */
-    private function getMazeRendererService(): MazeRenderInterface
+    private function getMazeRendererService(?string $renderer): MazeRenderInterface
     {
-        return $this->get('app.maze.renderer');
+        switch ($renderer) {
+            case 'html':
+                return $this->get('app.maze.renderer.html');
+
+            case 'pacman':
+                return $this->get('app.maze.renderer.pacman');
+
+            case 'starship':
+                return $this->get('app.maze.renderer.starship');
+
+            case 'halloween':
+                return $this->get('app.maze.renderer.halloween');
+
+            default:
+                return $this->get('app.maze.renderer');
+        }
     }
 }

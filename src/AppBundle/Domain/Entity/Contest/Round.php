@@ -211,6 +211,8 @@ class Round
     }
 
     /**
+     * Return the participants array ordered by classigication
+     *
      * @return Participant[]
      */
     public function classification(): array
@@ -226,6 +228,25 @@ class Round
         });
 
         return $classification;
+    }
+
+    /**
+     * Return only the winners from the participants array
+     *
+     * @return Participant[]
+     */
+    public function winners(): array
+    {
+        $winners = [];
+
+        $classification = $this->classification();
+        foreach ($classification as $participant) {
+            if ($participant->classified()) {
+                $winners[] = $participant;
+            }
+        }
+
+        return $winners;
     }
 
     /**
@@ -280,6 +301,9 @@ class Round
      */
     public function calculateClassification(): Round
     {
+        /**
+         * Calculate the number of total winners (~3 * num-rounds)
+         */
         $classification = $this->classification();
         $numPlayers = count($classification);
         if ($numPlayers <= self::MAX_WINNERS_PER_ROUND) {
@@ -287,22 +311,60 @@ class Round
         } elseif ($numPlayers <= Match::MAX_PLAYERS_PER_MATCH) {
             $numWinners = self::MAX_WINNERS_PER_ROUND;
         } else {
-            $numGroups = ceil((float)$numPlayers / Match::MAX_PLAYERS_PER_MATCH);
+            $numGroups = (int) ceil((float) $numPlayers / Match::MAX_PLAYERS_PER_MATCH);
             $numWinners = $numGroups * self::MAX_WINNERS_PER_ROUND;
         }
 
+        /**
+         * Set the winners (check ties)
+         */
         $lastScore = -1;
+        $nextRoundPlayers = 0;
 
         /** @var Participant $participant */
         foreach ($classification as $participant) {
             if ($numWinners > 0) {
                 $participant->setClassified(true);
                 $lastScore = $participant->score();
+                $nextRoundPlayers++;
                 $numWinners--;
             } elseif ($numWinners == 0 && $lastScore == $participant->score()) {
                 $participant->setClassified(true);
+                $nextRoundPlayers++;
             } else {
                 $numWinners = -1;
+            }
+        }
+
+        /**
+         * Playoffs ("respesca") in case enough players
+         */
+        if ($numPlayers > Match::MAX_PLAYERS_PER_MATCH) {
+            $numGroups = (int) ceil((float) $nextRoundPlayers / Match::MAX_PLAYERS_PER_MATCH);
+            $allowedPlayers = Match::MAX_PLAYERS_PER_MATCH * $numGroups;
+
+            while ($nextRoundPlayers < $allowedPlayers) {
+                $playoffScore = -1;
+                $playoffParticipants = [];
+                foreach ($classification as $participant) {
+                    if ($participant->score() < $lastScore && $playoffScore < 0) {
+                        $playoffScore = $participant->score();
+                    }
+                    if ($participant->score() == $playoffScore) {
+                        $playoffParticipants[] = $participant;
+                    }
+                }
+
+                if ($playoffScore < 0 || $nextRoundPlayers + count($playoffParticipants) > $allowedPlayers) {
+                    break;
+                }
+
+                foreach ($playoffParticipants as $participant) {
+                    $participant->setClassified(true);
+                    $nextRoundPlayers++;
+                }
+
+                $lastScore = $playoffScore;
             }
         }
 

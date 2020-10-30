@@ -59,7 +59,7 @@ class PlayerRequest implements PlayerRequestInterface
      *             "x": "int"
      *         }
      *     ],
-     *     "invaders": [
+     *     "enemies": [
      *         {
      *             "y": "int",
      *             "x": "int",
@@ -136,7 +136,7 @@ class PlayerRequest implements PlayerRequestInterface
                 'walls'     => $this->getVisibleWalls($game->maze(), $y1, $x1, $y2, $x2),
             ),
             'players'   => $this->getVisiblePlayers($game->players(), $player, $y1, $x1, $y2, $x2),
-            'invaders'  => $this->getVisibleGhosts($game->ghosts(), $y1, $x1, $y2, $x2)
+            'enemies'  => $this->getVisibleGhosts($game->ghosts(), $y1, $x1, $y2, $x2)
         );
 
         if ($asArray) {
@@ -161,7 +161,7 @@ class PlayerRequest implements PlayerRequestInterface
         $walls = array();
         for ($y = $y1; $y <= $y2; ++$y) {
             for ($x = $x1; $x <= $x2; ++$x) {
-                if ($maze[$y][$x]->getContent() == MazeCell::CELL_WALL) {
+                if ($maze[$y][$x]->isWall()) {
                     $walls[] = array(
                         'y' => $y,
                         'x' => $x

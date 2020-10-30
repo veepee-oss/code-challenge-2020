@@ -13,17 +13,16 @@
             </h1>
             <p class="lead">
                 The idea is quite simple: You have to <strong>create a <a href="#api-documentation">REST API</a></strong>
-                to <strong>move a starship</strong> across a random generated board. In this board there are also a
-                number of <strong>space invaders</strong> and the other players' starships. You could
-                <strong>move</strong> or <strong>fire</strong> at any direction (up, down, left or right), but you will
-                have limited shots.
+                to <strong>move a player</strong> across a random generated board. In this board there will also be a
+                number of <strong>enemies</strong> and the other players. You will be able to <strong>move</strong> or
+                <strong>fire</strong> at any direction (up, down, left or right), but you will have limited shots.
             </p>
             <p class="lead">
                 You will know the size of the board, the position of your character and some other data, but you won't
                 see the entire board. The game engine will call your API, sending the current conditions, and your API
-                will have to response with your next move: <strong>up</strong>, <strong>down</strong>, <strong>left</strong>,
-                <strong>right</strong>, <strong>fire-up</strong>, <strong>fire-down</strong>, <strong>fire-left</strong>
-                or <strong>fire-right</strong>.
+                will have to respond with your next move: <code>up</code>, <code>down</code>, <code>left</code>,
+                <code>right</code>, <code>fire-up</code>, <code>fire-down</code>, <code>fire-left</code>
+                or <code>fire-right</code>.
             </p>
         </div>
     </div>
@@ -33,24 +32,30 @@
             <h2>
                 The game
             </h2>
+            <p class="lead">
+                The game board is a matrix of <code>N x M</code> cells containing a randomly generated maze.
+                The width and the height are configurable and can vary from one game to another.
+                Width: <code>10 &le; N &le; 50</code>, height: <code>10 &le; M &le; 25</code>.
+                Each cell of the game can contain only one item at the same time: a wall, a player or an enemy.
+            </p>
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <p>
-                        <img class="img-responsive" src="{{ asset('images/starship-screen01.png') }}">
+                        <img class="img-responsive" src="{{ asset('images/halloween-screen01.png') }}">
                     </p>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="row">
                         <div class="col-xs-2">
                             <p>
-                                <img class="img-responsive" src="{{ asset('images/starship-player01-right.png') }}">
+                                <img class="img-responsive" src="{{ asset('images/halloween-player-ghost-right.png') }}">
                             </p>
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                The <strong>Player's Starship</strong> is the character moved by the
-                                <a href="#api-documentation">player's REST API</a>. The game engine can manage up to 8
-                                differenct starships concurrently.
+                                The <strong>player's character</strong> is moved by the
+                                <a href="#api-documentation">player's REST API</a>. The game engine can manage up to 9
+                                different players concurrently on the same board.
                             </p>
                         </div>
                     </div>
@@ -58,13 +63,13 @@
                     <div class="row">
                         <div class="col-xs-2">
                             <p>
-                                <img class="img-responsive" src="{{ asset('images/starship-invader01-regular.png') }}">
+                                <img class="img-responsive" src="{{ asset('images/halloween-pumpkin-evil.png') }}">
                             </p>
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                The <strong>Space Invaders</strong> will kill a you if they catch you. The invaders move
-                                randomly across the board. The number of invaders in the game and the spawn frequency
+                                The <strong>enemies</strong> will kill you if they catch you. They move
+                                randomly across the board. The number of enemies in the game and the spawn frequency
                                 can be configured and it changes from game to game.
                             </p>
                         </div>
@@ -73,14 +78,14 @@
                     <div class="row">
                         <div class="col-xs-2">
                             <p>
-                                <img class="img-responsive" src="{{ asset('images/starship-invader02-neutral.png') }}">
+                                <img class="img-responsive" src="{{ asset('images/halloween-pumpkin-neutral.png') }}">
                             </p>
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                When a new space invader is born, he is <strong>neutral</strong> for some movements.
-                                A neutral invader cannot kill a player, but players can kill neutral space invaders by
-                                touching them. After a few movements a neutral invader becomes a regular space invader.
+                                When a new enemy is born, he is <strong>neutral</strong> for some movements.
+                                A neutral enemy cannot kill a player, but players can kill neutral enemies by
+                                touching them. After a few movements a neutral enemy becomes a regular enemy.
                             </p>
                         </div>
                     </div>
@@ -88,13 +93,13 @@
                     <div class="row">
                         <div class="col-xs-2">
                             <p>
-                                <img class="img-responsive" src="{{ asset('images/starship-explosion.png') }}">
+                                <img class="img-responsive" src="{{ asset('images/halloween-player-tombstone.png') }}">
                             </p>
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                When a player is killed, he <strong>explodes</strong>. A killed player will remain
-                                dead for some movements and then he respaws in the same place where he was killed.
+                                When a player is killed, it remains <strong>dead</strong> for some movements. A killed player
+                                will respawn in the same place where he was killed.
                             </p>
                         </div>
                     </div>
@@ -102,13 +107,13 @@
                     <div class="row">
                         <div class="col-xs-2">
                             <p>
-                                <img class="img-responsive" src="{{ asset('images/starship-shot-right.png') }}">
+                                <img class="img-responsive" src="{{ asset('images/halloween-lightning-bolt-right.png') }}">
                             </p>
                         </div>
                         <div class="col-xs-10">
                             <p class="lead">
-                                This is a <strong>shot</strong>. A player fired. If a shot hunts a player or an invader,
-                                it kills him.
+                                Players can <strong>shoot</strong> to the enemies or to the other players.
+                                f a shot hunts a player or an enemy, it kills him. Shots have a limited range.
                             </p>
                         </div>
                     </div>
@@ -116,96 +121,92 @@
             </div>
 
             <p class="lead">
-                The game engine processes all the <strong>movements</strong> from the players and then the
-                <strong>shots</strong>. So a player can dodge a shot. When all the movements and the shots are
-                processed the game engine moves the <strong>invaders</strong>. So the invaders cannot dodge a shot.
+                The shots are instantaneous, but limited to the
+                <a href="#visible-area"><strong>visible area</strong></a>. If two players shoot each other, both are
+                killed. After shooting, a player must reload and he cannot shoot again until a few movements.
             </p>
 
             <p class="lead">
-                The shots are instantaneous, but limited to the
-                <a href="#visible-area"><strong>visible area</strong></a>. If two players shot each other at the same
-                time, the both die. After shoting, a player must reload and he cannot shot again until after a few
-                movements.
+                If two or more players try to occupy the <strong>same cell</strong> at the same time, they are
+                <strong>all killed</strong>.
+                If a player occupies the same cell as an enemy, one of them dies.
+                If the enemy is neutral, he dies.
+                Otherwise, the player is the one who dies.
+            </p>
+
+            <p class="lead">
+                The game engine processes all the <strong>movements</strong> from the players and then the
+                <strong>shots</strong>. So a player can dodge a shot. When all the movements and the shots are
+                processed the game engine moves the <strong>enemies</strong>. So the enemies cannot dodge a shot.
+            </p>
+
+            <p class="lead">
+                The length of the game is defined by the number of movements which is a configurable parameter of the
+                game (<code>50</code> to <code>5000</code>).
+                In every movement, a call is made to each of the players' APIs and all responses are processed.
+                The players' APIs have a timeout of <code>3</code> seconds.
+                If an API does not respond before the timeout, its movement is considered null.
+                Since all calls are made in parallel, each movement takes a maximum of 3 seconds.
+                So a game of 50 movements will take 2.5 seconds maximum.
             </p>
         </div>
     </div>
 
     <div class="bg-danger">
         <div class="container text-justify">
-            <div class="row">
-                <div class="col-xm-12 col-md-8">
-                    <h2>
-                        Rules
-                    </h2>
 
-                    <h3>
-                        Basics
-                    </h3>
-
-                    <ul class="lead">
-                        <li>
-                            The <strong>Code Challenge 2018</strong> is a programming competition.
-                        </li>
-                        <li>
-                            It's opened to <strong>all Privalia employees</strong> particularly those ones in the IT department.
-                        </li>
-                        <li>
-                            The required <strong>programming level</strong> to participate is high.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-xs-12 col-md-4 center-block">
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <img
-                        src="{{ asset('images/space-invaders.png') }}"
-                        alt="{{ 'app.global.name' | trans }}"
-                        title="{{ 'app.global.name' | trans }}"
-                        class="img-responsive"
-                    />
-                </div>
+            <div class="rules-logo pull-right visible-lg">
+                <img
+                    src="{{ asset('images/halloween-logo.png') }}"
+                    alt="{{ 'app.global.name' | trans }}"
+                    title="{{ 'app.global.name' | trans }}"
+                    class="img-responsive"
+                />
             </div>
 
+            <div class="rules-logo-mobile hidden-lg">
+                <img
+                    src="{{ asset('images/halloween-logo.png') }}"
+                    alt="{{ 'app.global.name' | trans }}"
+                    title="{{ 'app.global.name' | trans }}"
+                    class="img-responsive"
+                />
+            </div>
+
+            <h2>
+                Rules
+            </h2>
+
             <h3>
-                Join
+                Basics
             </h3>
 
             <ul class="lead">
                 <li>
-                    To join the challenge you'll need to <strong>upload your API to your own Internet server</strong>.
+                    The <strong>Code Challenge 2020</strong> is a programming competition.
+                </li>
+                <li>
+                    It's open to <strong>all Veepee employees</strong>, particularly to <strong>vpTech</strong> ones.
+                </li>
+                <li>
+                    The required <strong>programming level</strong> to participate is <strong>high</strong>.
+                </li>
+                <li>
+                    To join the challenge you'll need to <strong>upload your API</strong> to an Internet server.
                 </li>
                 <li>
                     Your API has to be <strong>accessible</strong> from the game server through an URL or IP address.
                 </li>
-                <li>
-                    No support will be given to create the API or upload it to a server.
-                </li>
             </ul>
 
             <h3>
-                Dates
+                Restrictions
             </h3>
 
             <ul class="lead">
                 <li>
-                    <strong>November 30<sup>th</sup></strong> to <strong>December 13<sup>rd</sup></strong>: Develop your API.
-                </li>
-                <li>
-                    <strong>December 14<sup>th</sup></strong> at <strong>13:00h</strong>: Competition at Privalia training room.
-                </li>
-            </ul>
-
-            <h3>
-                Prizes
-            </h3>
-
-            <ul class="lead">
-                <li>
-                    A t-shirt for all participants.
-                </li>
-                <li>
-                    Three special prizes for the bests.
+                    No human interaction is allowed within the players' APIs.
+                    That is, the APIs must decide their next move without human intervention.
                 </li>
             </ul>
 
@@ -218,14 +219,82 @@
                     The Competition format will depend on <strong>the number of participants</strong>.
                 </li>
                 <li>
-                    The idea is to do some semifinals to discard non-optimized APIs and then a
+                    The idea is to do some <strong>qualifying rounds</strong> to discard non-optimized APIs and then a
                     <strong>big final</strong>.
                 </li>
+            </ul>
+
+            <div class="bs-callout bs-callout-danger">
+                <h4>
+                    Example
+                </h4>
+
+                <p>
+                    50 participants:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>1st round</strong>:
+                        50 players, 6 groups (4 of 8 players + 2 of 9 players)
+                        &rarr; 18 players qualified for the next round.
+                    </li>
+                    <li>
+                        <strong>2nd round</strong>:
+                        18 players, 2 groups of 9 players
+                        &rarr; 6 players qualified for the final.
+                    </li>
+                    <li>
+                        <strong>Final</strong>:
+                        6 players, 1 group of 9 players,
+                        &rarr; 3 top players (1 winner).
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="lead">
                 <li>
-                    The game parameters (size of the board, number of invaders, etc) will be revealed
-                    the day of the competition.
+                    The number of <strong>matches per group</strong> and the number of <strong>movements per
+                    match</strong> will change from round to round (as well as the width and height of the board and
+                    the number of enemies).
+                </li>
+                <li>
+                    The duration of the challenge will depend on the <strong>number of participants</strong>, the
+                    <strong>matches per group</strong> per each round and the <strong>movements per match</strong>
+                    per each round.
                 </li>
             </ul>
+            <div class="bs-callout bs-callout-danger">
+                <h4>
+                    Example
+                </h4>
+
+                <p>
+                    50 participants, 2 rounds and a big final:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>1st round</strong>:
+                        6 groups, 2 matches per group, 50 movements per match (~2.5 minutes)
+                        &rarr; 12 matches, ~30 minutes.
+                    </li>
+                    <li>
+                        <strong>2nd round</strong>:
+                        2 groups, 3 matches per group, 100 movements per match (~5 minutes)
+                        &rarr; 6 matches, ~30 minutes.
+                    </li>
+                    <li>
+                        <strong>Final</strong>:
+                        1 group, 4 matches, 150 movements (~7.5 minutes)
+                        &rarr; 4 matches, ~30 minutes.
+                    </li>
+                </ul>
+
+                <p>
+                    Total 1.5 hours.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -245,7 +314,7 @@
                 </li>
                 <li>
                     <code>/move</code>:
-                    will receive map information, and needs to reply with the next move for the player.
+                    will receive the game status and will respond with the next move for the player.
                     See the <a href="#move-endpoint"><strong>Move Endpoint</strong></a> for more information.
                 </li>
             </ul>
@@ -313,17 +382,17 @@
                             <code>y1</code>, <code>x1</code>, <code>y2</code> and <code>x2</code>.
                         </p>
                         <p class="lead">
-                            The information sent in <code>board.walls</code>, <code>invaders</code> and <code>players</code> vars
+                            The information sent in <code>board.walls</code>, <code>enemies</code> and <code>players</code> vars
                             depends on the <strong>visible area</strong>.
                         </p>
                         <p class="lead">
                             The <strong>fire range</strong> also depends on the <strong>visible area</strong>. You can
-                            shot at any straight direction (up, down, left or right) and the fire range is limited to
+                            shoot in any straight direction (up, down, left or right) and the fire range is limited to
                             what you can see.
                         </p>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                        <img class="img-responsive" src="{{ asset('images/starship-screen02.png') }}">
+                        <img class="img-responsive" src="{{ asset('images/halloween-screen02.png') }}">
                         <div class="text-center small" id="figure-1">
                             <i>Figure 1: Visible area</i>
                         </div>

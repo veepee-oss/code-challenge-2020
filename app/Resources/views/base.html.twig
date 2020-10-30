@@ -8,8 +8,13 @@
         <title>{% block title %}{{ 'app.global.name' | trans }} - {{ 'app.global.title' | trans }}{% endblock %}</title>
         <meta name="description" content="{% block description %}{{ 'app.global.description' | trans }}{% endblock %}">
         <meta name="author" content="{% block author %}{{ 'app.global.author' | trans }}{% endblock %}">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}" />
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}" />
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('android-chrome-192x192.png') }}" />
+        <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
 
         {% block stylesheets %}
             {% block twbs_stylesheets %}
@@ -30,12 +35,13 @@
                 <link rel="stylesheet" href="{{ asset('css/maze.css') }}" />
                 <link rel="stylesheet" href="{{ asset('css/xmaze.css') }}" />
                 <link rel="stylesheet" href="{{ asset('css/starship.css') }}" />
+                <link rel="stylesheet" href="{{ asset('css/halloween.css') }}" />
             {% endblock %}
 
             {% block more_stylesheets %}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="{% block bodyclass %}{% endblock %}">
         {% block body %}
             {% block navbar %}
                 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -44,13 +50,13 @@
                             <a class="navbar-brand" href="{{ url('homepage') }}">{{ 'app.global.title' | trans }}</a>
                         </div>
                         <div class="nav navbar-nav navbar-right hidden-xs">
-                            <img class="img-responsive" src="{{ asset('images/privalia-logo-black.png') }}">
+                            <img class="img-responsive company-logo-top" src="{{ asset('images/veepee-logo-square.png') }}">
                         </div>
                     </div>
                 </nav>
             {% endblock %}
 
-            {%  block flash %}
+            {% block flash %}
                 {% for label, messages in app.flashes %}
                     {% for message in messages %}
                         <div class="container">
@@ -74,10 +80,10 @@
                     <footer>
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="{{ asset('images/privalia.png') }}" alt="Privalia" title="Privalia">
-                                <br>
                                 Copyright &copy;
-                                <a href="http://www.privalia.com/">Privalia Venta Directa S.A.U.</a> 2006-2018
+                                <a href="https://www.veepee.com/">Veepee.com</a> 2020
+                                <br>
+                                <img class="company-logo-bottom" src="{{ asset('images/veepee-logo.png') }}" alt="Veepee" title="Veepee">
                             </div>
 
                             <div class="col-sm-6 text-footer-right">

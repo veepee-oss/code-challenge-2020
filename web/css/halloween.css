@@ -1,0 +1,337 @@
+/**********************************************************************************************************************/
+
+body.x-halloween-background::after {
+    content: "";
+    background: #111 url("../images/halloween-background.png") no-repeat;
+    opacity: 0.90;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+body.x-halloween-background a,
+body.x-halloween-background a:focus,
+body.x-halloween-background a:active,
+body.x-halloween-background a:focus:active {
+    color: #39e8d5;
+}
+
+/**********************************************************************************************************************/
+
+.x-maze.x-halloween-maze {
+    background: #000000 url("../images/halloween-ground.png") repeat;
+}
+
+.x-maze.x-halloween-finished {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.x-maze.x-halloween-maze td {
+    width: 45px;
+    height: 45px;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-wall0 {
+    background: transparent url("../images/halloween-wall-rocks3.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-wall1 {
+    background: transparent url("../images/halloween-wall-tree1.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-wall2 {
+    background: transparent url("../images/halloween-wall-tree2.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player1-right {
+    background: transparent url("../images/halloween-player-bat-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player1-left {
+    background: transparent url("../images/halloween-player-bat-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player1-up {
+    background: transparent url("../images/halloween-player-bat-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player1-down {
+    background: transparent url("../images/halloween-player-bat-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player2-right {
+    background: transparent url("../images/halloween-player-ghost-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player2-left {
+    background: transparent url("../images/halloween-player-ghost-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player2-up {
+    background: transparent url("../images/halloween-player-ghost-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player2-down {
+    background: transparent url("../images/halloween-player-ghost-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player3-right {
+    background: transparent url("../images/halloween-player-spider-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player3-left {
+    background: transparent url("../images/halloween-player-spider-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player3-up {
+    background: transparent url("../images/halloween-player-spider-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player3-down {
+    background: transparent url("../images/halloween-player-spider-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player4-right {
+    background: transparent url("../images/halloween-player-vampire-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player4-left {
+    background: transparent url("../images/halloween-player-vampire-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player4-up {
+    background: transparent url("../images/halloween-player-vampire-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player4-down {
+    background: transparent url("../images/halloween-player-vampire-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player5-right {
+    background: transparent url("../images/halloween-player-blackcat-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player5-left {
+    background: transparent url("../images/halloween-player-blackcat-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player5-up {
+    background: transparent url("../images/halloween-player-blackcat-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player5-down {
+    background: transparent url("../images/halloween-player-blackcat-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player6-right {
+    background: transparent url("../images/halloween-player-witch-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player6-left {
+    background: transparent url("../images/halloween-player-witch-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player6-up {
+    background: transparent url("../images/halloween-player-witch-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player6-down {
+    background: transparent url("../images/halloween-player-witch-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player7-right {
+    background: transparent url("../images/halloween-player-mummy-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player7-left {
+    background: transparent url("../images/halloween-player-mummy-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player7-up {
+    background: transparent url("../images/halloween-player-mummy-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player7-down {
+    background: transparent url("../images/halloween-player-mummy-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player8-right {
+    background: transparent url("../images/halloween-player-death-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player8-left {
+    background: transparent url("../images/halloween-player-death-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player8-up {
+    background: transparent url("../images/halloween-player-death-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player8-down {
+    background: transparent url("../images/halloween-player-death-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player9-right {
+    background: transparent url("../images/halloween-player-werewolf-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player9-left {
+    background: transparent url("../images/halloween-player-werewolf-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player9-up {
+    background: transparent url("../images/halloween-player-werewolf-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-player9-down {
+    background: transparent url("../images/halloween-player-werewolf-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-player-tombstone {
+    background: transparent url("../images/halloween-player-tombstone.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-enemy1-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-enemy1-regular {
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-enemy2-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-enemy2-regular {
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-enemy3-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-enemy3-regular {
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-enemy4-neutral {
+    background: transparent url("../images/halloween-pumpkin-neutral.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-enemy4-regular {
+    background: transparent url("../images/halloween-pumpkin-evil.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-enemy-killed {
+    background: transparent url("../images/halloween-pumpkin-smashed.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/
+
+.x-halloween-lightning-bolt-right {
+    background: transparent url("../images/halloween-lightning-bolt-right.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-lightning-bolt-left {
+    background: transparent url("../images/halloween-lightning-bolt-left.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-lightning-bolt-up {
+    background: transparent url("../images/halloween-lightning-bolt-up.png") no-repeat;
+    background-size: 100%;
+}
+
+.x-halloween-lightning-bolt-down {
+    background: transparent url("../images/halloween-lightning-bolt-down.png") no-repeat;
+    background-size: 100%;
+}
+
+/**********************************************************************************************************************/

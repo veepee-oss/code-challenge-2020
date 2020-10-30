@@ -1,64 +1,27 @@
+/***********************************************************************************************************************
+ * Global Styles
+ **********************************************************************************************************************/
+
 body {
     padding-top: 50px;
 }
-
-/**********************************************************************************************************************/
-
-.bg-primary small {
-    color: #CCCCCC;
-}
-
-.bg-primary a {
-    color: #FFFFFF;
-}
-
-.bg-primary a:hover {
-    color: #CCCCCC;
-}
-
-/**********************************************************************************************************************/
-
-footer .text-footer-right {
-    text-align: right;
-}
-
-@media (max-width: 767px) {
-    footer .text-footer-right {
-        text-align: left;
-    }
-}
-
-/**********************************************************************************************************************/
 
 textarea {
     resize: none;
 }
 
-/**********************************************************************************************************************/
-
 .text-justify {
-    text-align: justify;
+    text-align: justify !important;
 }
 
-/**********************************************************************************************************************/
 
-.maze-buttons {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
+/***********************************************************************************************************************
+ * Bootstrap3 overwrites
+ **********************************************************************************************************************/
 
-}
-
-.panel-list-striped > div:nth-of-type(even) {
-    background-color: #f0f0f0 !important;
-}
-
-/**********************************************************************************************************************/
-
-.image-players {
-    width: 48px;
-    height: 48px;
-    margin-right: 12px;
+.alert {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 /**********************************************************************************************************************/
@@ -66,6 +29,12 @@ textarea {
 .panel-body-scroll {
     max-height: 300px;
     overflow-y: scroll;
+}
+
+/**********************************************************************************************************************/
+
+.panel-list-striped > div:nth-of-type(even) {
+    background-color: #f0f0f0 !important;
 }
 
 /**********************************************************************************************************************/
@@ -92,7 +61,349 @@ textarea {
 
 /**********************************************************************************************************************/
 
-.alert {
-    margin-top: 15px !important;
-    margin-bottom: 15px !important;
+.bg-primary small {
+    color: #CCCCCC;
 }
+
+.bg-primary a {
+    color: #FFFFFF;
+}
+
+.bg-primary a:hover {
+    color: #CCCCCC;
+}
+
+/**********************************************************************************************************************/
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0 20px 40px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.bs-callout code {
+    border-radius: 3px;
+}
+
+/* Tighten up space between multiple callouts */
+.bs-callout + .bs-callout {
+    margin-top: -5px;
+}
+
+/* Variations */
+.bs-callout-danger {
+    border-left-color: #ce4844;
+}
+
+.bs-callout-danger h4 {
+    color: #ce4844;
+}
+
+.bs-callout-warning {
+    border-left-color: #aa6708;
+}
+
+.bs-callout-warning h4 {
+    color: #aa6708;
+}
+
+.bs-callout-info {
+    border-left-color: #1b809e;
+}
+
+.bs-callout-info h4 {
+    color: #1b809e;
+}
+
+
+/***********************************************************************************************************************
+ * Site styles
+ **********************************************************************************************************************/
+
+footer .text-footer-right {
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    footer .text-footer-right {
+        text-align: left;
+    }
+}
+
+/**********************************************************************************************************************/
+
+.company-logo-top {
+    height: 50px !important;
+}
+
+.company-logo-bottom {
+    height: 36px !important;
+    width: auto !important;
+}
+
+/**********************************************************************************************************************/
+
+.panel-score {
+    margin-top: 20px;
+}
+.panel-score .panel-body {
+    background-color: #d9edf7;
+}
+
+.score-player-img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 1px;
+    margin-right: 12px;
+}
+
+.maze-buttons {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**********************************************************************************************************************/
+
+.panel-games {
+    max-height: 750px;
+}
+
+.panel-game-players {
+    line-height: 95%;
+    padding: 5px;
+    background-color: #eee;
+}
+
+.panel-list-striped > div:nth-of-type(even) .panel-game-players {
+    background-color: #ddd !important;
+}
+
+/**********************************************************************************************************************/
+
+div.rules-logo {
+    width: 500px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px
+}
+
+div.rules-logo img {
+    background-color: #111;
+}
+
+div.rules-logo-mobile img {
+    background-color: #111;
+    width: 100%;
+}
+
+/***********************************************************************************************************************
+ * Halloween Styles
+ **********************************************************************************************************************/
+
+body.halloween-body {
+    background: #111 url("../images/halloween-background.png") no-repeat fixed;
+    padding-top: 0;
+    color: #ccc;
+}
+
+.halloween-index .jumbotron {
+    padding-top: 0;
+    background-color: transparent;
+}
+
+.halloween-contest .jumbotron {
+    padding-top: 96px !important;
+    background-color: rgba(200, 200, 200, 0.25);
+}
+
+.halloween-contest .jumbotron h1 {
+    color: #3ed;
+}
+
+.halloween-contest .jumbotron h1 small {
+    color: #aff;
+}
+
+.halloween-contest .panel {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.halloween-contest .list-group-item {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid #000;
+}
+
+.halloween-contest .list-group-item.active {
+    background-image: none;
+    background-color: #EC008C;
+}
+
+.halloween-body .text-success {
+    color: #f5b;
+}
+
+.halloween-body .text-danger {
+    color: #73b;
+}
+
+.halloween-body .text-info {
+    color: #aff;
+}
+
+.halloween-body .text-info strong {
+    color: #3ed;
+}
+
+.halloween-body a,
+.halloween-body a:focus,
+.halloween-body a:active,
+.halloween-body a:focus:active {
+    color: #39e8d5;
+}
+
+/**********************************************************************************************************************/
+
+.halloween-body .btn-primary,
+.halloween-body .btn-primary:focus,
+.halloween-body .btn-primary.focus,
+.halloween-body .btn-primary:active,
+.halloween-body .btn-primary.active,
+.halloween-body .btn-primary:active:focus,
+.halloween-body .btn-primary.active:focus,
+.halloween-body .btn-primary:active.focus,
+.halloween-body .btn-primary.active.focus {
+    color: #fff;
+    background-color: #5072fc;
+    background-image: none;
+    border-color: #5072fc;
+}
+
+.halloween-body .btn-primary:hover,
+.halloween-body .btn-primary:active:hover,
+.halloween-body .btn-primary.active:hover {
+    color: #fff;
+    background-color: #a5befa;
+    background-image: none;
+    border-color: #a5befa;
+}
+
+.halloween-body .btn-warning,
+.halloween-body .btn-warning:focus,
+.halloween-body .btn-warning.focus,
+.halloween-body .btn-warning:active,
+.halloween-body .btn-warning.active,
+.halloween-body .btn-warning:active:focus,
+.halloween-body .btn-warning.active:focus,
+.halloween-body .btn-warning:active.focus,
+.halloween-body .btn-warning.active.focus {
+    color: #fff;
+    background-color: #ec008c;
+    background-image: none;
+    border-color: #ec008c;
+}
+
+.halloween-body .btn-warning:hover,
+.halloween-body .btn-warning:active:hover,
+.halloween-body .btn-warning.active:hover {
+    color: #fff;
+    background-color: #ffa9b2;
+    background-image: none;
+    border-color: #ffa9b2;
+}
+
+.halloween-body .btn-success,
+.halloween-body .btn-success:focus,
+.halloween-body .btn-success.focus,
+.halloween-body .btn-success:active,
+.halloween-body .btn-success.active,
+.halloween-body .btn-success:active:focus,
+.halloween-body .btn-success.active:focus,
+.halloween-body .btn-success:active.focus,
+.halloween-body .btn-success.active.focus {
+    color: #fff;
+    background-color: #39e8d5;
+    background-image: none;
+    border-color: #39e8d5;
+}
+
+.halloween-body .btn-success:hover,
+.halloween-body .btn-success:active:hover,
+.halloween-body .btn-success.active:hover {
+    color: #000;
+    background-color: #aefff3;
+    background-image: none;
+    border-color: #aefff3;
+}
+
+/**********************************************************************************************************************/
+
+.halloween-body .panel-success {
+    border-color: #39e8d5;
+}
+
+.halloween-body .panel-success > .panel-heading {
+    color: #ffffff;
+    border-color: #39e8d5;
+    background-color: #39e8d5;
+    background-image: none;
+}
+
+.halloween-body .panel-success > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #39e8d5;
+}
+
+.halloween-body .panel-success > .panel-heading .badge {
+    color: #39e8d5;
+    background-color: #ffffff;
+}
+
+.halloween-body .panel-success > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #39e8d5;
+}
+
+.halloween-body .panel-info {
+    border-color: #a5befa;
+}
+
+.halloween-body .panel-info > .panel-heading {
+    color: #ffffff;
+    border-color: #a5befa;
+    background-color: #a5befa;
+    background-image: none;
+}
+
+.halloween-body .panel-info > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #a5befa;
+}
+
+.halloween-body .panel-info > .panel-heading .badge {
+    color: #a5befa;
+    background-color: #ffffff;
+}
+
+.halloween-body .panel-info > .panel-footer + .panel-collapse > .panel-body {
+    border-bottom-color: #a5befa;
+}
+
+/**********************************************************************************************************************/
+
+.halloween-logo {
+    background-color: #111;
+    margin-bottom: 15px;
+}
+
+/**********************************************************************************************************************/

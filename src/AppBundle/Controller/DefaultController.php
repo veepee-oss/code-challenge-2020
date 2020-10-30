@@ -16,13 +16,25 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * Default page
+     * Default page - redirects to halloween
      *
      * @Route("/", name="homepage")
      * @return Response
      * @throws \Exception
      */
     public function indexAction() : Response
+    {
+        return $this->halloweenAction();
+    }
+
+    /**
+     * Former default page - kept for compatibility
+     *
+     * @Route("/default", name="defaultpage")
+     * @return Response
+     * @throws \Exception
+     */
+    public function defaultAction() : Response
     {
         /** @var ContestRepository $repo */
         $repo = $this->getDoctrine()->getRepository('AppBundle:Contest');
@@ -34,6 +46,30 @@ class DefaultController extends Controller
         $activeContests = $repo->findActiveContests();
 
         return $this->render('default/index.html.twig', [
+            'openedContests' => $openedContests,
+            'activeContests' => $activeContests
+        ]);
+    }
+
+    /**
+     * Default page
+     *
+     * @Route("/halloween", name="halloween")
+     * @return Response
+     * @throws \Exception
+     */
+    public function halloweenAction() : Response
+    {
+        /** @var ContestRepository $repo */
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Contest');
+
+        /** @var ContestEntity $openedContests */
+        $openedContests = $repo->findOpenedContests();
+
+        /** @var ContestEntity $openedContests */
+        $activeContests = $repo->findActiveContests();
+
+        return $this->render('default/index-halloween.html.twig', [
             'openedContests' => $openedContests,
             'activeContests' => $activeContests
         ]);

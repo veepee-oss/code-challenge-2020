@@ -143,7 +143,7 @@ class GameEngine
     public function move(Game &$game) : bool
     {
         $this->createGhosts($game);
-        $game->resetKilledGhosts();
+        $game->resetKilledGhosts(false);
         $this->resetFire($game);
         $this->movePlayers($game);
         $this->checkPlayersFire($game);
@@ -399,7 +399,7 @@ class GameEngine
         do {
             $y = rand(1, $maze->height() - 2);
             $x = rand(1, $maze->width() - 2);
-        } while ($maze[$y][$x]->getContent() != MazeCell::CELL_EMPTY);
+        } while (!$maze[$y][$x]->isEmpty());
         $game->addGhost(new Ghost(new Position($y, $x), null, $type));
         return $this;
     }

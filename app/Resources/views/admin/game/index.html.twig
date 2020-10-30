@@ -61,7 +61,7 @@
                         </a>
                     </div>
                     <div id="panel-playing"
-                         class="panel-body panel-list-striped collapse {% if playingGames | length > 0 %}in{% endif %}">
+                         class="panel-body panel-list-striped panel-games collapse {% if playingGames | length > 0 %}in{% endif %}">
                         {% for game in playingGames %}
                             {% include 'admin/game/gameData.html.twig' with { 'game' : game }  %}
                         {% else %}
@@ -78,7 +78,7 @@
                         </a>
                     </div>
                     <div id="panel-paused"
-                         class="panel-body panel-body-scroll panel-list-striped collapse {% if pausedGames | length > 0 %}in{% endif %}">
+                         class="panel-body panel-body-scroll panel-list-striped panel-games collapse {% if pausedGames | length > 0 %}in{% endif %}">
                         {% for game in pausedGames %}
                             {% include 'admin/game/gameData.html.twig' with { 'game' : game }  %}
                         {% else %}
@@ -95,7 +95,7 @@
                         </a>
                     </div>
                     <div id="panel-stopped"
-                         class="panel-body panel-body-scroll panel-list-striped collapse {% if notStartedGames | length > 0 %}in{% endif %}">
+                         class="panel-body panel-body-scroll panel-list-striped panel-games collapse {% if notStartedGames | length > 0 %}in{% endif %}">
                         {% for game in notStartedGames %}
                             {% include 'admin/game/gameData.html.twig' with { 'game' : game }  %}
                         {% else %}
@@ -112,7 +112,7 @@
                         </a>
                     </div>
                     <div id="panel-finished"
-                         class="panel-body panel-body-scroll panel-list-striped collapse">
+                         class="panel-body panel-body-scroll panel-list-striped panel-games collapse">
                         {% for game in finishedGames %}
                             {% include 'admin/game/gameData.html.twig' with { 'game' : game }  %}
                         {% else %}

@@ -97,6 +97,13 @@
              #}
             <div class="panel-footer text-center">
                 <a  role="button"
+                    class="btn btn-primary"
+                    href="{{ url('contest_view', { 'uuid': contest.uuid }) }}">
+                    <span class="glyphicon glyphicon glyphicon-search"></span>
+                    {{ 'app.contest-view.buttons.view' | trans }}
+                </a>
+
+                <a  role="button"
                     class="btn btn-warning"
                     href="{{ url('admin_contest_edit', { 'uuid': contest.uuid }) }}">
                     <span class="glyphicon glyphicon glyphicon-edit"></span>

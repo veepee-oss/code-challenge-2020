@@ -1,16 +1,22 @@
 
-# Privalia Code Challenge 2018
+# vpTech Code Challenge 2020
 
-The 2018 event of the **Privalia Code Challenge** is called **Space Invaders Tribute**!
-The goal is easy: You have to create a REST API to **kill the invaders** (and the other players too).
+The 2020 edition of the **vpTech Code Challenge** is dedicated to **Halloween**!
+The goal is simple:
+You have to create a REST API
+to **move a player** (_random halloween monster_)
+over a random generated board,
+**killing the other players** (_other halloween monsters_)
+and some **common enemies** (_evil pumpkins_),
+to get the **best score**.
 
-Your API will move a starship competing with the other player APIs in a real time challenge.
-All the starships will start in a different random position.
-The winner will be the starship with the highest score.
+Your API will move a player competing with the other player APIs in a real time competition.
+Each player will start in a different random position.
+The winner will be the player with the highest score.
 
-* **+50 points** to kill another player's starship.
-* **+25 points** to kill a space invader.
-* **-100 points** when killed by another player or invader.
+* **+25 points** to kill an enemy.
+* **+50 points** to kill another player.
+* **-100 points** when killed by another player or enemy.
 
 She the [full rules](docs/rules.md) or the [API documentation](docs/api.md).
 
@@ -18,7 +24,7 @@ She the [full rules](docs/rules.md) or the [API documentation](docs/api.md).
 
 ### Configuration
 
-This repo constains the server used for the **Privalia Code Challenge 2018**.
+This repo constains the server used for the **vpTech Code Challenge 2020**.
 It's a [PHP](http://php.net/) project which uses the [Symfony 3.4](https://symfony.com/) framework, a [MySQL](https://www.mysql.com/) database and a [RabbitMQ](https://www.rabbitmq.com/) messaging system.
 It has been developed using **`PHP 7.2`**, **`MySQL 5.7`**, **`RabbitMQ 3.7`** and **[`docker`](https://www.docker.com/)** technologies.
 The `docker` folder contains the particular images used in the development environment and some [bash](https://www.gnu.org/software/bash/) commands with helps configurating the environment.
@@ -31,6 +37,8 @@ The `docker` folder contains the particular images used in the development envir
 - `docker/phpunit.sh` - Execute phpunit unit tests inside the container (params are allowed). The containers must be started before run this script.
 - `docker/bash.sh` - Access bash shell of the API container. The containers must be started before run this script.
 - `docker/su.sh` - Access bash shell of the API container with the `root`user. The containers must be started before run this script.
+- `docker/php.sh` - Execute the php command of the API container. The containers must be started before run this script.
+- `docker/mysql.sh` - Access the mysql command of the MySQL container. The containers must be started before run this script.
 
 NOTE: All these scripts assume there is an user `david` in the host.
 You can change it for your user name to avoid permission problems.
@@ -124,7 +132,7 @@ $ docker/console.sh -e prod cache:warmup
 
 **MIT License**
 
-Copyright (c) 2018 Privalia Venta Directa S.A.U.
+Copyright (c) 2020 Veepee
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

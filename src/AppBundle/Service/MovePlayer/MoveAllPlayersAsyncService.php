@@ -178,7 +178,7 @@ class MoveAllPlayersAsyncService implements MoveAllPlayersServiceInterface
      * @return string     the UUID of the event sent (to be uses as correllation id)
      * @throws MovePlayerException
      */
-    private function publishRequest(AMQPChannel $channel, string $callbackQueue, Game $game, Player $player) : string
+    private function publishRequest(AMQPChannel $channel, string $callbackQueue, Game $game, Player $player) : ?string
     {
         $requestData = $this->requestBuilder->create(
             $player,

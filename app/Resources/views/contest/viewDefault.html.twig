@@ -27,7 +27,7 @@
                 {{ 'app.contest-view.texts.r-date-from' | trans }}
                 <strong>{{ contest.registrationStartDate | date('Y-m-d H:i:s e') }}</strong>
                 {{ 'app.contest-view.texts.r-date-to' | trans }}
-                <strong>{{ contest.registrationEndDate | date('Y-m-d H:i:s e') }}</strong>.
+                <strong>{{ contest.registrationEndDate | date('Y-m-d H:i:s e') }}</strong>
             </p>
 
             {% if contest.contestStartDate is not empty or contest.contestEndDate is not empty %}
@@ -36,17 +36,21 @@
                     {{ 'app.contest-view.texts.c-date-from' | trans }}
                     <strong>{{ contest.contestStartDate is empty ? "--" : contest.contestStartDate | date('Y-m-d H:i:s e') }}</strong>
                     {{ 'app.contest-view.texts.c-date-to' | trans }}
-                    <strong>{{ contest.contestEndDate is empty ? "--" : contest.contestEndDate | date('Y-m-d H:i:s e') }}</strong>.
+                    <strong>{{ contest.contestEndDate is empty ? "--" : contest.contestEndDate | date('Y-m-d H:i:s e') }}</strong>
                 </p>
             {% endif %}
 
             <p class="text-info">
                 <span class="glyphicon glyphicon-user"></span>
-                {{ 'app.contest-view.texts.competitors' | trans }}
+                {{ 'app.contest-view.texts.competitors' | trans }}:
                 <strong>{{ contest.countCompetitors }}</strong>
                 {% if contest.maxCompetitors is not empty %}
                     {{ 'app.contest-view.texts.of' | trans }}
                     <strong>{{ contest.maxCompetitors }}</strong>
+                {% endif %}
+                {% if validated > 0 %}
+                    ({{ 'app.contest-view.texts.validated' | trans }}:
+                    <strong>{{ validated }}</strong>)
                 {% endif %}
             </p>
         </div>
@@ -82,7 +86,54 @@
                         <div class="col-sm-4">
                             <ul class="list-group">
                                 <li class="list-group-item active">
-                                    <strong class="list-group-item-heading">{{ 'app.contest-view.texts.classification' | trans }}</strong>
+                                    <strong class="list-group-item-heading">
+                                        {{ 'app.contest-view.texts.round-details' | trans }}
+                                    </strong>
+                                <li class="list-group-item">
+                                    <p>
+                                        {{ 'app.contest-view.texts.participants' | trans }}:
+                                        <strong class="text-info">
+                                            {{ round.participants | length }}
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        {{ 'app.contest-view.texts.matches-player' | trans }}:
+                                        <strong class="text-info">
+                                            {{ round.matchesPerPlayer }}
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        {{ 'app.contest-view.texts.moves-match' | trans }}:
+                                        <strong class="text-info">
+                                            {{ round.limit }}
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        {{ 'app.contest-view.texts.min-enemies' | trans }}:
+                                        <strong class="text-info">
+                                            {{ round.minGhosts }}
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        {{ 'app.contest-view.texts.enemies-rate' | trans }}:
+                                        <strong class="text-info">
+                                            {{ round.ghostRate }}
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        {{ 'app.contest-view.texts.dimensions' | trans }}:
+                                        <strong class="text-info">
+                                            {{ round.width }} x {{ round.height }}
+                                        </strong>
+                                    </p>
+                                </li>
+                            </ul>
+
+                            <ul class="list-group">
+                                <li class="list-group-item active">
+                                    <strong class="list-group-item-heading">
+                                        {{ 'app.contest-view.texts.classification' | trans }}
+                                    </strong>
                                 </li>
                                 {% for participant in round.classification %}
                                     <li class="list-group-item {% if participant.classified %}text-success{% endif %}">
@@ -121,13 +172,19 @@
                                     <div class="list-group-item">
                                         <p class="list-group-item-heading">
                                             <strong>
-                                                <a target="_blank" href="{{ url('game_view', { 'uuid': match.game.uuid }) }}">
-                                                    {% if match.game is empty %}
-                                                        {{ match.uuid }}
-                                                    {% else %}
-                                                        {{ match.game.name }}
-                                                    {% endif %}
-                                                </a>
+                                                {%  if match.game is not null %}
+                                                    <a target="_blank" href="{{ url('game_view', { 'uuid': match.game.uuid }) }}">
+                                                        {% if match.game is empty %}
+                                                            {{ match.uuid }}
+                                                        {% else %}
+                                                            {{ match.game.name }}
+                                                        {% endif %}
+                                                    </a>
+                                                {% else %}
+                                                    <span class="bg-danger text-danger">
+                                                        {{ 'app.contest-view.texts.game-not-found' | trans }}
+                                                    </span>
+                                                {% endif %}
                                             </strong>
 
                                             &nbsp;
@@ -145,9 +202,11 @@
                                                     {{ 'app.contest-view.texts.status.running' | trans }}
                                                 </span>
                                                 &nbsp;
-                                                <span class="label label-default">
-                                                    {{ 'app.contest-view.texts.movs-left' | trans({ '%count%': match.game.movesLeft }) }}
-                                                </span>
+                                                {% if match.game is not null %}
+                                                    <span class="label label-default">
+                                                        {{ 'app.contest-view.texts.movs-left' | trans({ '%count%': match.game.movesLeft }) }}
+                                                    </span>
+                                                {% endif %}
                                             {% else %}
                                                 <span class="label label-default">
                                                     {{ 'app.contest-view.texts.status.not-started' | trans }}

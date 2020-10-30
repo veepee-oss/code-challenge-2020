@@ -1,7 +1,7 @@
 .maze {
     font-family: monospace;
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 25px;
+    line-height: 25px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -14,8 +14,8 @@
     text-align: center;
     vertical-align: middle;
     overflow: hidden;
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
 }
 
 /**********************************************************************************************************************/
@@ -123,221 +123,261 @@
 
 /**********************************************************************************************************************/
 
-.maze .player1 {
+.maze .player1,
+.maze-player1 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player1:after {
+.maze .player1:after,
+.maze-player1:after {
     content: "\2776";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player2 {
+.maze .player2,
+.maze-player2 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player2:after {
+.maze .player2:after,
+.maze-player2:after {
     content: "\2777";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player3 {
+.maze .player3,
+.maze-player3 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player3:after {
+.maze .player3:after,
+.maze-player3:after {
     content: "\2778";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player4 {
+.maze .player4,
+.maze-player4 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player4:after {
+.maze .player4:after,
+.maze-player4:after {
     content: "\2779";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player5 {
+.maze .player5,
+.maze-player5 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player5:after {
+.maze .player5:after,
+.maze-player5:after {
     content: "\277A";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player6 {
+.maze .player6,
+.maze-player6 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player6:after {
+.maze .player6:after,
+.maze-player6:after {
     content: "\277B";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player7 {
+.maze .player7,
+.maze-player7 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player7:after {
+.maze .player7:after,
+.maze-player7:after {
     content: "\277C";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player8 {
+.maze .player8,
+.maze-player8 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player8:after {
+.maze .player8:after,
+.maze-player8:after {
     content: "\277D";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player9 {
+.maze .player9,
+.maze-player9 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player9:after {
+.maze .player9:after,
+.maze-player9:after {
     content: "\277E";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player10 {
+.maze .player10,
+.maze-player10 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player10:after {
+.maze .player10:after,
+.maze-player10:after {
     content: "\277F";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player11 {
+.maze .player11,
+.maze-player11 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player11:after {
+.maze .player11:after,
+.maze-player11:after {
     content: "\24EB";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player12 {
+.maze .player12,
+.maze-player12 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player12:after {
+.maze .player12:after,
+.maze-player12:after {
     content: "\24EC";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player13 {
+.maze .player13,
+.maze-player13 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player13:after {
+.maze .player13:after,
+.maze-player13:after {
     content: "\24ED";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player14 {
+.maze .player14,
+.maze-player14 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player14:after {
+.maze .player14:after,
+.maze-player14:after {
     content: "\24EE";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player15 {
+.maze .player15,
+.maze-player15 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player15:after {
+.maze .player15:after,
+.maze-player15:after {
     content: "\24EF";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player16 {
+.maze .player16,
+.maze-player16 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player16:after {
+.maze .player16:after,
+.maze-player16:after {
     content: "\24F0";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player17 {
+.maze .player17,
+.maze-player17 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player17:after {
+.maze .player17:after,
+.maze-player17:after {
     content: "\24F1";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player18 {
+.maze .player18,
+.maze-player18 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player18:after {
+.maze .player18:after,
+.maze-player18:after {
     content: "\24F2";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player19 {
+.maze .player19,
+.maze-player19 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player19:after {
+.maze .player19:after,
+.maze-player19:after {
     content: "\24F3";
 }
 
 /**********************************************************************************************************************/
 
-.maze .player20 {
+.maze .player20,
+.maze-player20 {
     background-color: #000000;
     color: #FFFFFF;
 }
 
-.maze .player20:after {
+.maze .player20:after,
+.maze-player20:after {
     content: "\24F4";
 }
 

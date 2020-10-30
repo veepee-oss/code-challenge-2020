@@ -1,10 +1,10 @@
 # messages.en.yml
 app:
     global:
-        name:           "Space Invaders tribute"
-        title:          "Code Challenge 2018"
-        description:    "Space Invaders tribute is the title of the Privalia Code Challenge 2018"
-        author:         "david.amigo@privalia.com"
+        name:           "vpTech presents"
+        title:          "Code Challenge 2020"
+        description:    "The 2020 edition of the vpTech Code Challenge is dedicated to Halloween."
+        author:         "david.amigo@veepee.com"
         login:          "Login"
         logout:         "Logout"
 
@@ -12,24 +12,30 @@ app:
         title:          "Homepage"
 
         upper-text:
-            1:              "The 2018 event of the <strong>Privalia Code Challenge</strong> is called <strong>Space Invaders Tribute</strong>!"
-            2:              "The goal is easy: You have to create a REST API to <strong>kill the invaders</strong> (and the other players too)."
+            1:              "The 2020 edition of the <strong>vpTech Code Challenge</strong> is dedicated to <strong>Halloween</strong>!"
+            2:              "The goal is simple: You have to create a REST API to <strong>move a player</strong> (<i class='text-danger'>random halloween monster</i>)"
+            3:              "over a random generated board, <strong>killing the other players</strong> (<i class='text-danger'>other halloween monsters</i>)"
+            4:              "and some <strong>common enemies</strong> (<i class='text-danger'>evil pumpkins</i>), to get the <strong>best score</strong>."
 
         lower-text:
-            1:              "Your API will move a starship competing with the other player APIs in a real time challenge."
-            2:              "All the starships will start in a different random position."
-            3:              "The winner will be the starship with the highest score."
+            1:              "Your API will move a player competing with the other player APIs in a real time competition."
+            2:              "Each player will start in a different random position."
+            3:              "The winner will be the player with the highest score."
             4:              "The scoring system is:"
 
         score:
-            1:              "<strong>%score% points</strong> to kill a space invader."
-            2:              "<strong>%score% points</strong> to kill another player's starship."
-            3:              "<strong>%score% points</strong> when killed by another player or invader."
+            1:              "<strong>%score% points</strong> to kill an enemy."
+            2:              "<strong>%score% points</strong> to kill another player."
+            3:              "<strong>%score% points</strong> when killed by another player or enemy."
+
+        credits:
+            1:              "The <strong>Code Challenge 2020</strong> game server has been created by <strong><a href='mailto:david.amigo@veepee.com'>David Amigo</a></strong>, <strong>architect at vpTech</strong>."
+            2:              "All designs were done by <strong><a href='mailto:rleitao@veepee.com'>Raphaël Leitao</a></strong>, <strong>vpTech's Graphic Artist</strong>."
 
         contests:   "Current active contests:"
 
         rules:          "See the rules"
-        create:         "Create test game"
+        create:         "Create a test game"
         register:       "Register"
 
     rules-page:
@@ -60,7 +66,7 @@ app:
     maze-page:
         texts:
             game:           "Game"
-            status:         "Status"
+            status:         "Game Status"
             moves:          "Moves"
             of:             "of"
             players:        "Players"
@@ -75,16 +81,16 @@ app:
             no-winners:     "No winners yet!"
             no-dead:        "No dead players yet!"
             no-players:     "No remaining players!"
-            score:          "Score"
+            score:          "Game Score"
             points:         "points"
 
     game-over:
         title:          "Game over"
 
         texts:
-            1:              "The <strong>Code Challenge 2018</strong> hasn't started."
+            1:              "The <strong>Code Challenge 2020</strong> hasn't started."
             2:              "You can't start creating games until <strong>%date%</strong>."
-            3:              "The <strong>Code Challenge 2018</strong> is over."
+            3:              "The <strong>Code Challenge 2020</strong> is over."
             4:              "You can't create more games since <strong>%date%</strong>."
             5:              "If you have any question you can email to: <strong>%email%</strong>."
 
@@ -96,13 +102,16 @@ app:
 
         texts:
             info:
-                1:              "After registering for the contest <strong>you will receive an email</strong> in the address provided to <strong>enable your API</strong>."
-                2:              "Keep in mind that you will <strong>not be fully registered</strong> until you enable your API."
-                3:              "The URL you provide during the registration <strong>must be valid</strong>. "
-                4:              "The endpoints of the API must respond with valid data."
-                5:              "Also the email returned by the <code>/name</code> endpoint must be the same provided in the form."
-                6:              "You can register <strong>only one API per email address</strong>."
-                7:              "If you use the same email to register another API, the first one will be deleted without notice."
+                1A:             "After registering for the contest <strong>you will receive an email</strong> in the address provided to <strong>enable your API</strong>."
+                1B:             "Keep in mind that you will <strong>not be fully registered</strong> until you enable your API."
+                2A:             "The URL you provide during the registration <strong>must be accessible</strong>."
+                2B:             "The endpoints of the API are tested during the registration process, so they both must respond with valid data."
+                2C:             "Also the email returned by the <code>/name</code> endpoint must be the same provided in the form."
+                2D:             "You can"
+                2E:             "<strong>check the rules</strong>"
+                2F:             "for more information about the format of the endpoints."
+                3A:             "Warning: You can register <strong>only one API per email address</strong>."
+                3B:             "If you use the same email to register another API, the first one will be deleted without notice!"
 
         form:
             contest:        "Contest (*)"
@@ -167,9 +176,9 @@ app:
             daemon-actions:   "Daemon Actions"
             consumer-actions: "Consumer Actions"
             other-actions:    "Other Actions"
-            height:           "Height: %height%"
-            width:            "Width: %width%"
-            players:          "{0} No players|{1} One player|]1,Inf[ Players: %players%"
+            height:           "Height: <strong>%height%</strong>"
+            width:            "Width: <strong>%width%</strong>"
+            players:          "{0} No players|{1} One player|]1,Inf[ Players: <strong>%players%</strong>"
             ask-remove:       "Remove game %uuid%?"
             ask-finish:       "Finish game %uuid%?"
             last-updated:     "Last updated:"
@@ -200,7 +209,7 @@ app:
             view-details:   "View game details"
             view-maze:      "View game board"
             view-panels:    "View game panels"
-            player-edit:    "Edit player %num% data"
+            player-edit:    "Edit player #%num% data"
             move-finished:  "Move to finished"
             remove:         "Remove game"
             contests:       "View contests"
@@ -215,6 +224,12 @@ app:
             name:           "Display name (*)"
             email:          "Email (*)"
             url:            "URL of the API (*)"
+            position-y:     "Position Y (*)"
+            position-x:     "Position X (*)"
+            previous-y:     "Previous Y (*)"
+            previous-x:     "Previous X (*)"
+            status:         "Status of the player (*)"
+            status-count:   "Movements to change status (*)"
             submit:         "Save"
 
     contest-index:
@@ -280,12 +295,18 @@ app:
             c-date-from:    "Contest date from"
             c-date-to:      "to"
             competitors:    "Competitors"
+            validated:      "Validated"
             of:             "of"
             rounds:         "Rounds"
             participants:   "Participants"
             classification: "Classification"
+            round-details:  "Round details"
             classified:     "Classified"
             matches:        "Matches"
+            moves-match:    "Moves per match"
+            min-enemies:    "Enemies at start"
+            enemies-rate:   "Moves to add enemies"
+            dimensions:     "Maze dimensions"
             email-c:        "Competitor email"
             email-p:        "Participant email"
             name-p:         "Participant name"
@@ -295,6 +316,8 @@ app:
             actions:        "Actions"
             not-validated:  "Not validated"
             movs-left:      "%count% movements left"
+            matches-player: "Matches per player"
+            game-not-found: "Game not found!"
             no-competitors: "This contest doesn't have any competitor!"
             no-rounds:      "This contest doesn't have any round!"
             no-participants: "This round doesn't have any participant!"
@@ -313,6 +336,7 @@ app:
                 round:          "Validate round %name% scores?"
 
         buttons:
+            view:           "View"
             edit:           "Edit"
             remove:         "Delete"
             add:            "Add"
@@ -343,7 +367,7 @@ app:
             constributors:  "Contributors"
             attributions:   "Attributions"
             libraries:      "Software Libraries"
-            graphics:       "Graphics and Icons"
+            graphics:       "External graphics and Icons"
 
     error-messages:
         max-competitors: "Max. competitors reached for contest \"%name%\"!"

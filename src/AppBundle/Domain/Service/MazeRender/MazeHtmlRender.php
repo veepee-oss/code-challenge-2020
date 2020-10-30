@@ -33,8 +33,7 @@ class MazeHtmlRender implements MazeRenderInterface
 
             // For each column...
             for ($col = 0; $col < $cols; ++$col) {
-                $cell = $maze[$row][$col]->getContent();
-                if ($cell == MazeCell::CELL_WALL) {
+                if ($maze[$row][$col]->isWall()) {
                     $html .= '<td class="wall"></td>';
                 } else {
                     $drawPlayer = null;
@@ -86,5 +85,34 @@ class MazeHtmlRender implements MazeRenderInterface
         }
         $html .= '</table>';
         return $html;
+    }
+
+    /**
+     * @return string the name of the renderer.
+     */
+    public function getName(): string
+    {
+        return 'html';
+    }
+
+    /**
+     * Return the style name to use as background body
+     *
+     * @return string
+     */
+    public function getBackgroundCss(): string
+    {
+        return "";
+    }
+
+    /**
+     * Return the style name to print a static player for the scoreboard
+     *
+     * @param int $index the number of player: 1, 2, 3, ...
+     * @return string
+     */
+    public function getStaticPlayerCss(int $index) : string
+    {
+        return "maze-player" . $index;
     }
 }
