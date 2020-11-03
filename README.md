@@ -46,7 +46,7 @@ You can change it for your user name to avoid permission problems.
 ### Installation
 
 ```
-$ git clone git@git.vptech.eu:david.amigo/code-challenge-2020.git
+$ git clone git@github.com:vpTechOSS/code-challenge-2020.git
 $ cd code-challenge-2020
 $ docker/build.sh
 $ docker/start.sh
