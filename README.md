@@ -46,8 +46,8 @@ You can change it for your user name to avoid permission problems.
 ### Installation
 
 ```
-$ git clone git@github.com:PrivaliaTech/code-challenge-2018.git
-$ cd code-challenge-2018
+$ git clone git@github.com:vpTechOSS/code-challenge-2020.git
+$ cd code-challenge-2020
 $ docker/build.sh
 $ docker/start.sh
 $ docker/composer.sh install
